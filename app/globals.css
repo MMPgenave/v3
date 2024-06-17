@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.backgammon-board {
+  grid-template-areas:
+    "top-left p13 p14 p15 p16 p17 p18 top-mid p19 p20 p21 p22 p23 p24 top-right"
+    "mid-left ui-l ui-l ui-l ui-l ui-l ui-l mid-mid ui-r ui-r ui-r ui-r ui-r ui-r mid-right"
+    "bot-left p12 p11 p10 p9 p8 p7 bot-mid p6 p5 p4 p3 p2 p1 bot-right";
+}
+
+.ba {
+  background-color: #6b6b9299;
+}

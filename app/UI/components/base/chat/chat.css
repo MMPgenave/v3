@@ -1,0 +1,264 @@
+.chatWithAi {
+  max-width: 913px;
+  width: calc(100% - 88px);
+  margin: 2rem auto;
+  border-radius: 10px;
+  border: 1px solid #2b2222;
+  background: #fff;
+  padding-bottom: 0.5rem;
+}
+
+.chatWithAi > .chat {
+  position: relative;
+  max-height: 370px;
+  bottom: 0;
+  overflow-y: scroll;
+  padding: 0px 9px 8rem 9px;
+  /* border: red solid 1px; */
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.chatWithAi > .chat::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.chatWithAi > .chat {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.chatWithAi > .chat > div {
+  /* border: red solid 0.5px; */
+  display: flex;
+  padding: 1rem 0;
+}
+.chatWithAi > .chat > .user {
+  justify-content: start;
+}
+.chatWithAi > .chat > .user > div {
+  /* border: blue solid 1px; */
+  width: 50%;
+  display: flex;
+  align-items: start;
+  gap: 20px;
+}
+
+.chatWithAi > .chat > div > div > .avatar-container {
+  min-width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.chatWithAi > .chat > div > div > .avatar-container img.avatar {
+  width: 53px;
+  height: 53px;
+  border-radius: 100%;
+  border: 3px solid #fff;
+}
+.chatWithAi > .chat > div > div > .message {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex-grow: 1;
+}
+.chatWithAi > .chat > .user > div > .message > .text {
+  position: relative;
+}
+.chatWithAi > .chat > .user > div > .message > .text > div.content {
+  border-radius: 5px;
+  background: #2abb9c;
+  padding: 22px 15px 17px 15px;
+  color: #fff;
+  text-align: justify;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  position: relative;
+  width: fit-content;
+}
+
+.chatWithAi > .chat > .user > div > .message > .text > .right-arrow {
+  position: absolute;
+  left: -7px;
+  top: 15px;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-right: 15px solid #2abb9c;
+  rotate: -135deg;
+}
+
+.chatWithAi > .chat > .user > div > .message > .user-name {
+  color: #7d7d7d;
+  text-align: left;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.chatWithAi > .chat > .system > div > .message > .user-name {
+  color: #7d7d7d;
+  text-align: right;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.chatWithAi > .chat .date {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.chatWithAi > .chat .date > div {
+  color: #7d7d7d;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.chatWithAi > .chat > .system {
+  justify-content: end;
+  width: 100%;
+}
+.chatWithAi > .chat > .system > div {
+  /* border: blue solid 1px; */
+  width: 50%;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: start;
+  justify-content: end;
+  gap: 20px;
+}
+
+.chatWithAi > .chat > .system > div > .message {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: end;
+}
+.chatWithAi > .chat > .system > div > .message > .text {
+  position: relative;
+}
+
+.chatWithAi > .chat > .system > div > .message > .text > .left-arrow {
+  position: absolute;
+  left: -7px;
+  top: 22px;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-right: 15px solid #f5f5f5;
+  rotate: -135deg;
+}
+.chatWithAi > .chat > .system > div > .message > .text > .content {
+  border-radius: 5px;
+  background: #f5f5f5;
+  padding: 22px 12px 22px 17px;
+  color: #565656;
+  text-align: justify;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.chatWithAi > .chat > .system > div > .message > .text > .content .ai-processing-data {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.chatWithAi > .chat > .system > div > .message > .text > .content .ai-processing-data img {
+  height: 47px;
+}
+
+.chatWithAi > .chat > .system > div > .message > .text > .content .ai-processing-data .text {
+  color: #535353;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.chatWithAi > .chat > .system > div > .message > .text > .content .ai-processing-data .text span {
+  font-weight: 200;
+}
+
+.chatWithAi > .send {
+  width: calc(100% - 50px);
+  position: fixed;
+  bottom: 6rem;
+  margin: 1.5rem auto 0 auto;
+  margin-top: 2rem;
+  border-radius: 5px;
+  background: #f5f5f5;
+  padding: 8px 26px 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.chatWithAi > .send .txta {
+  width: 100%;
+  font-size: 14px;
+  color: #565656;
+  padding-top: 10px;
+  text-align: justify;
+  overflow: hidden;
+  line-height: 1.4;
+  border: unset;
+  outline: none;
+  background-color: inherit;
+  resize: none;
+}
+
+.chatWithAi > .send textarea::-webkit-scrollbar {
+  display: none;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #161d23;
+  color: white;
+  border-radius: 0% 0% 5% 5%;
+  padding: 20px;
+}
+
+.topbar .username {
+  margin-left: 5%;
+}
+
+@media only screen and (max-width: 768px) {
+  .chatWithAi {
+    border: unset;
+    width: calc(100% - 20px);
+  }
+  .chatWithAi > .send {
+    width: calc(100% - 20px);
+    padding: 10px 12px;
+    gap: 2rem;
+  }
+
+  .chatWithAi > .send .txta {
+    width: 100%;
+    font-size: 8px;
+  }
+
+  .chatWithAi > .send button {
+    width: 59px;
+    height: 25px;
+    border-radius: 3px;
+    font-size: 10px;
+  }
+}

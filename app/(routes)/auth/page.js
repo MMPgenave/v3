@@ -1,0 +1,48 @@
+import {
+  Button,
+  Logo,
+  MainHeading,
+  GetStartedSubHeading as SubHeading,
+} from "@/app/UI/components/base";
+import Link from "next/link";
+import { routes } from "@/app/lib/config/routes";
+import {
+  ButtonContainer,
+  HeadingContainer,
+  GetStartedSection as Section,
+} from "@/app/UI/layout";
+import { ConnectSocialAccounts } from "@/app/UI/components/widgets";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+const Auth = async () => {
+  const cookieStore = cookies();
+  const session = cookieStore.get("session");
+  return session ? (
+    redirect(routes.HOME.FEED)
+  ) : (
+    <Section>
+      <Logo />
+      <HeadingContainer>
+        <MainHeading>let's get started</MainHeading>
+        <SubHeading>
+          Login to your account below or signup for an amazing experience
+        </SubHeading>
+      </HeadingContainer>
+      <ButtonContainer>
+        <Link href={routes.LOGIN} className="w-full">
+          <Button mode="lively" additionalStyles="w-full">
+            Have an Account? Login
+          </Button>
+        </Link>
+        <Link href={routes.REGISTER} className="w-full">
+          <Button mode="lively" outline additionalStyles="w-full">
+            Create an account
+          </Button>
+        </Link>
+      </ButtonContainer>
+      <ConnectSocialAccounts />
+    </Section>
+  );
+};
+
+export default Auth;
