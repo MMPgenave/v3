@@ -18,22 +18,15 @@ export const ProfileField = ({ children, title, className }) => {
     toast(`${val} successfully edited`);
   };
   const NameSchema = Yup.object().shape({
-    name: Yup.string()
-      .required("Required")
-      .min(3, "Too Short!")
-      .max(25, "Too Long!"),
+    name: Yup.string().required("Required").min(3, "Too Short!").max(25, "Too Long!"),
   });
   const BioSchema = Yup.object().shape({
-    bio: Yup.string()
-      .required("Required")
-      .min(3, "Too Short!")
-      .max(60, "Too Long!"),
+    bio: Yup.string().required("Required").min(3, "Too Short!").max(60, "Too Long!"),
   });
 
   return (
     <div
-        style={{ 'background-color': 'black' , 'color' : 'white' }}
-      className={`${className} flex flex-col w-full ${
+      className={`${className} flex flex-col w-full bg-black text-slate-100 ${
         title === "bio" ? "" : ""
       } flex text-shark p-4 bg-white shadow-md rounded-lg font-bold `}
     >
@@ -73,15 +66,13 @@ export const ProfileField = ({ children, title, className }) => {
                 type: "text",
                 icon: "bi-chat-left-heart-fill",
               };
-              const props =
-                title === "name" ? { ...nameFieldProps } : { ...bioFieldProps };
+              const props = title === "name" ? { ...nameFieldProps } : { ...bioFieldProps };
               return (
                 <Form className="relative w-full p-4 items-center gap-2">
                   <Field {...props} />
                   <button type="submit">
                     <i className="absolute top-4 right-4 text-5xl text-success cursor-pointer hover:text-green bi bi-check"></i>
                   </button>
-
                 </Form>
               );
             }}

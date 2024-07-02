@@ -30,34 +30,24 @@ export const TopNav = () => {
   }, []);
 
   return (
-    <nav className="sticky top-0 border-b-2 border-b-primary w-full flex items-center justify-between p-4 bg-blue-violet z-50">
-      <style jsx>
-        {`
-          .border-b-primary {
-            border-bottom-color: #008fff;
-          }
-          .bg-blue-violet {
-            background-color: rgb(2 0 65);
-          }
-        `}
-      </style>
+    <nav className="  w-full flex items-center justify-between p-4 bg-[#020041] z-10">
       <Avatar href={routes.PROFILE} src={user ? user.Avatar : "/images/unknown-user.png"} />
       <TypographyLogo />
-      <div className="flex gap-3">
-        <div className="flex flex-col gap-0 justify-center items-end">
+      <div className="flex gap-4">
+        <div className="flex flex-col justify-between items-end pt-1 ">
           <div className="flex gap-1 items-center text-base sm:text-xl hover:scale-110 transition-all">
-            <span className=" p-1 text-success text- font-bold">{user ? user.Coin : 0}</span>
-            <i style={{ color: "gold" }} className="bi bi-coin text-neon-carrot text-1xl"></i>
+            <span className=" p-1 text-slate-300 text- font-bold">{user ? user.Coin : 0}</span>
+            <i className="bi bi-coin text-yellow-500 text-1xl"></i>
           </div>
           <div className="flex gap-1 items-center text-base sm:text-xl hover:scale-110 transition-all">
-            <span className=" p-1 text-success text- font-bold">{user ? user.Gem : 0}</span>
+            <span className=" p-1 text-slate-300 text- font-bold">{user ? user.Gem : 0}</span>
             <i className="bi bi-gem text-info text-1xl"></i>
           </div>
         </div>
-        <div className="flex flex-col justify-center items-end">
+        <div className="flex flex-col justify-between items-center">
           <Notification />
-          <div className="flex gap-1 items-center text-base sm:text-xl hover:scale-110 transition-all">
-            <span className=" p-1 text-success text- font-bold">Wallet</span>
+          <div className="flex gap-1 items-center text-base sm:text-xl hover:scale-110 transition-all ">
+            <span className=" p-1 text-slate-300 text- font-bold">Wallet</span>
             <i className="bi bi-wallet-fill cursor-pointer text-info text-1xl"></i>
           </div>
         </div>

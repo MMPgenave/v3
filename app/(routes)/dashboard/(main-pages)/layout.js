@@ -7,11 +7,11 @@ const Layout = ({ children }) => {
   const session = cookieStore.get("session");
   // console.log(`session is :${JSON.stringify(session)}`);
   return session ? (
-    <>
+    <div className="h-full">
       <TopNav />
       {children}
       <BottomMenu />
-    </>
+    </div>
   ) : (
     redirect(routes.AUTH)
   );

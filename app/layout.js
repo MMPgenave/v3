@@ -9,7 +9,6 @@ import { AuthUpdater } from "./UI/components/base";
 import { ToastContainer } from "react-toastify";
 import { Body } from "./UI/layout";
 const comic = Comic_Neue({ subsets: ["latin"], weight: ["300", "400", "700"] });
-import Head from "next/head";
 
 export const metadata = {
   title: "Torny Town",
@@ -22,7 +21,7 @@ export default async function RootLayout({ children }) {
       <ReduxProvider>
         <Body style={comic.className}>
           <Suspense fallback={<Loading />}>
-            <main className="flex flex-col ">{children}</main>
+            <main className="  min-h-screen bg-[#0D1926] text-slate-100">{children}</main>
           </Suspense>
           <AuthUpdater />
           <ToastContainer />

@@ -12,8 +12,7 @@ import { useAppDispatch, useAppSelector } from "@/app/lib/redux/hooks";
 import { setFailedToJoin, setJoinName, setShouldRedirectTo } from "@/app/lib/redux/features/room/room-slice";
 import { createRoom } from "@/app/actions/room/create-room";
 import { useSocketOn } from "@/app/lib/hooks/hooks";
-import io from "socket.io-client";
-const socket = io();
+
 export const GameItem = ({ img, children, handleClick, withInput }) => {
   const dispatch = useAppDispatch();
   const { user } = useAppSelector((state) => state.auth);
@@ -69,22 +68,6 @@ export const GameItem = ({ img, children, handleClick, withInput }) => {
     sethostIdFromSocket(host_id.hostId);
     setBet(host_id.bet);
   });
-
-  // useEffect(() => {
-  //   socket.on("recive_hostId", (host_id) => {
-  //     console.log("in my useEffect :hostId", host_id.hostId);
-  //     console.log("in my useEffect :bet", host_id.bet);
-  //     sethostIdFromSocket(host_id.hostId);
-  //     setBet(host_id.bet);
-  //   });
-  //   return () =>
-  //     socket.off("recive_hostId", (host_id) => {
-  //       console.log("in my useEffect :hostId", host_id.hostId);
-  //       console.log("in my useEffect :bet", host_id.bet);
-  //       sethostIdFromSocket(host_id.hostId);
-  //       setBet(host_id.bet);
-  //     });
-  // }, []);
 
   const handleSubmit = (values, setSubmitting) => {
     joinRoom(values.code, handleSetFailedToJoin, handleSetJoinName, handleSetShouldRedirectTo, toast);

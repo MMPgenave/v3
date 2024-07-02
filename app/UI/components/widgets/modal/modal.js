@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from "@/app/lib/redux/hooks";
 import { startRoom } from "@/app/actions";
 import { setFailedToJoin, setJoinName, setShouldRedirectTo } from "@/app/lib/redux/features/room/room-slice";
 import { toast } from "react-toastify";
-import { setHostId, setBet } from "@/app/lib/redux/features/RoomProperties/RoomProperties-slice";
+// import { setHostId, setBet } from "@/app/lib/redux/features/RoomProperties/RoomProperties-slice";
 import { socketEmit } from "@/app/lib/hooks/hooks";
 
 export const Modal = ({ show, toggleShow }) => {

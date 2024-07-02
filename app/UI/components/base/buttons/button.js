@@ -27,6 +27,7 @@ export const Button = ({
     info: "bg-info hover:bg-deep-sky-blue",
     warning: "bg-warning hover:bg-neon-carrot",
     danger: "bg-danger hover:bg-firebrick",
+    gold: "bg-[#FAFAB6]  hover:bg-[#FAFAB6] ",
   };
 
   const outlineStyles = {
@@ -37,6 +38,7 @@ export const Button = ({
     info: "text-info border-info hover:bg-info",
     warning: "text-warning border-warning hover:bg-warning",
     danger: "text-danger border-danger hover:bg-danger",
+    gold: " text-[#FAFAB6] border-[#FAFAB6] hover:border-slate-200 ",
   };
   const sizes = {
     lg: "py-3 px-6 text-xl",

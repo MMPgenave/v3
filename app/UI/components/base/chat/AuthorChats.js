@@ -13,6 +13,15 @@ const AuthorChats = () => {
     const ChatsList = await getMessageList();
     const chatids = ChatsList.map((element) => Number(element.ChatID));
     const fetchedChats = await getMultipleChats(chatids);
+
+    // sort fetchedChats based on newest message the all users send to this author
+    fetchedChats.sort((chat1, chat2) => {
+      const timeObj_chat1 = new Date(chat1[0].created_at);
+      const timeObj_chat2 = new Date(chat2[0].created_at);
+      return timeObj_chat2.getTime() - timeObj_chat1.getTime();
+    });
+    console.log(`${[1, 22, 3, 45].sort((a, b) => b - a)}`);
+
     setallChats(fetchedChats);
   };
   const getAuthorHere = async () => {
@@ -31,7 +40,7 @@ const AuthorChats = () => {
   return (
     allChats &&
     author && (
-      <div className="mt-2">
+      <div className="mt-3 flex flex-col gap-3">
         {allChats.map((chatArray) => {
           const chat = chatArray[0];
           const { SenderID, ReceiverID } = chat;
