@@ -39,7 +39,6 @@
     "next": "^14.2.3",
     "node-fs": "^0.1.7",
     "node-html-parser": "^6.1.13",
-    "olympus-bg": "github:michaelti/olympus-bg",
     "query-string": "^9.0.0",
     "ramda.clone": "^0.26.1",
     "react": "^18",
