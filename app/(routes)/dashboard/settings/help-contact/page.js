@@ -1,7 +1,7 @@
 import { List, ListItem as Item } from "@/app/UI/components/base";
 import { settings } from "@/app/lib/data/settings";
 import Link from "next/link";
-
+// only for redoplyment
 const HelpContact = () => {
   return (
     <List>
