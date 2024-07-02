@@ -6,7 +6,7 @@ const Notifications = () => {
   return (
     <List>
       {settings.notifications.map((item) => (
-        <Link className="w-full " href={`/settings/${item}`}>
+        <Link className="w-full " href={`/settings/${item}`} key={item}>
           <Item>{item}</Item>
         </Link>
       ))}

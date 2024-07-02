@@ -6,7 +6,7 @@ const Language = () => {
   return (
     <List>
       {settings.language.map((item) => (
-        <Link className="w-full " href={`/settings/${item}`}>
+        <Link className="w-full " href={`/settings/${item}`} key={item}>
           <Item>{item}</Item>
         </Link>
       ))}

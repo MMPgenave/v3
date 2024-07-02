@@ -14,7 +14,7 @@ const Auth = async () => {
     <Section>
       <Logo />
       <HeadingContainer>
-        <MainHeading style={" text-slate-200"}>let's get started</MainHeading>
+        <MainHeading style={" text-slate-200"}>let&apos;s get started</MainHeading>
         <SubHeading>Login to your account below or signup for an amazing experience</SubHeading>
       </HeadingContainer>
       <ButtonContainer>

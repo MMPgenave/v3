@@ -6,7 +6,7 @@ const Devices = () => {
   return (
     <List>
       {settings.devices.map((item) => (
-        <Link href={`/settings/${item}`}>
+        <Link href={`/settings/${item}`} key={item}>
           <Item>{item}</Item>
         </Link>
       ))}

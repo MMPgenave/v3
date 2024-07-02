@@ -6,7 +6,7 @@ const Privacy = () => {
   return (
     <List>
       {settings.privacy.map((item) => (
-        <Link className="w-full " href={`/settings/${item}`}>
+        <Link className="w-full " href={`/settings/${item}`} key={item}>
           <Item>{item}</Item>
         </Link>
       ))}

@@ -6,7 +6,7 @@ const About = () => {
   return (
     <List>
       {settings.about.map((item) => (
-        <Link href={`/settings/${item}`}>
+        <Link href={`/settings/${item}`} key={item}>
           <Item>{item}</Item>
         </Link>
       ))}

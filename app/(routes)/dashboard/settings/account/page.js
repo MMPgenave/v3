@@ -6,7 +6,7 @@ const Account = () => {
   return (
     <List>
       {settings.account.map((item) => (
-        <Link href={`/settings/${item}`}>
+        <Link href={`/settings/${item}`} key={item}>
           <Item>{item}</Item>
         </Link>
       ))}
