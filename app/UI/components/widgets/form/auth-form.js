@@ -7,16 +7,9 @@ import { LoginSchema, SignupSchema } from "@/app/lib/config/definitions";
 import { signIn, signUp } from "@/app/actions";
 import { routes } from "@/app/lib/config/routes";
 import { useRouter } from "next/navigation";
-import {checkUsername} from "@/app/actions/check-username";
+import { checkUsername } from "@/app/actions/check-username";
 
-export const AuthForm = ({
-  initialValues,
-  fields,
-  heading,
-  subHeading,
-  children,
-  type,
-}) => {
+export const AuthForm = ({ initialValues, fields, heading, subHeading, children, type }) => {
   const router = useRouter();
   async function handleLogin(values) {
     const res = await signIn(values);
@@ -33,7 +26,7 @@ export const AuthForm = ({
 
   async function handleRegister(values) {
     var usernameStatus = await checkUsername(values.username);
-    if(usernameStatus == true){
+    if (usernameStatus == true) {
       const res = await signUp(values);
       if (res.status === "error") {
         toast.error(res.message);
@@ -44,10 +37,9 @@ export const AuthForm = ({
         }, 3000);
       }
       return res;
-    }else{
+    } else {
       toast.error("Username is already taken");
     }
-
   }
 
   const handleSubmit = async (values, setSubmitting) => {
@@ -68,16 +60,14 @@ export const AuthForm = ({
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={(values, { setSubmitting }) =>
-        handleSubmit(values, setSubmitting)
-      }
+      onSubmit={(values, { setSubmitting }) => handleSubmit(values, setSubmitting)}
       validationSchema={type === "log in" ? LoginSchema : SignupSchema}
     >
       {({ isSubmitting, errors, touched }) => {
         return (
-          <Form className="flex w-11/12 flex-col p-4 items-center gap-6 z-50 md:w-1/2 lg:w-1/3 xl:w-1/4 lg:bg-[rgba(200,200,300,0.9)] lg:rounded-lg">
-            <MainHeading>{heading}</MainHeading>
-            <SubHeading>{subHeading}</SubHeading>
+          <Form className="flex w-11/12 flex-col p-4 items-center gap-6 z-50 md:w-1/2 lg:w-1/3 xl:w-1/4 bg-blackTheme lg:rounded-lg">
+            <MainHeading style={"text-slate-300"}>{heading}</MainHeading>
+            <SubHeading className={"text-slate-400"}>{subHeading}</SubHeading>
             {fields.map((field) => (
               <Field
                 name={field.name}
@@ -91,12 +81,7 @@ export const AuthForm = ({
               />
             ))}
             {children}
-            <Button
-              mode="lively"
-              additionalStyles="w-full"
-              isLoading={isSubmitting}
-              type="submit"
-            >
+            <Button mode="gold" additionalStyles="w-full text-slate-700 " isLoading={isSubmitting} type="submit">
               {type}
             </Button>
           </Form>

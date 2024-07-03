@@ -27,6 +27,8 @@ module.exports = {
         gray: "#8b8b8b",
         orange: "#e7941e",
         purple: "#730062",
+        blackTheme: "#0D1926",
+        gold: "#FAFAB6",
         "neon-carrot": "#ec971f",
         "slate-blue": "#6859ea",
         "dark-slate-blue": "#1b183e",

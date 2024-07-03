@@ -11,6 +11,7 @@ import { Body } from "./UI/layout";
 const comic = Comic_Neue({ subsets: ["latin"], weight: ["300", "400", "700"] });
 
 export const metadata = {
+  manifest: "/manifest.json",
   title: "Torny Town",
   description: "Enter the Arena, Leave a Legend!",
 };
@@ -21,7 +22,7 @@ export default async function RootLayout({ children }) {
       <ReduxProvider>
         <Body style={comic.className}>
           <Suspense fallback={<Loading />}>
-            <main className="  min-h-screen bg-[#0D1926] text-slate-100">{children}</main>
+            <main className="  min-h-screen bg-blackTheme ">{children}</main>
           </Suspense>
           <AuthUpdater />
           <ToastContainer />

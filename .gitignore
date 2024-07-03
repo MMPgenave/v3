@@ -39,3 +39,7 @@ next-env.d.ts
 # IDEA files
 /.idea/
 /.vscode/
+
+sw.*
+workbox-*
+swe-worker-*
