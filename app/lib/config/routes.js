@@ -68,4 +68,4 @@ export const APIRoutes = {
   CLOSE_ROOM: "/api/V1/Game/Room/Close",
 };
 
-export const BASE_URL = "http://localhost:3000";
+export const BASE_URL = process.env.BASE_URL;
