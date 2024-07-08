@@ -30,8 +30,12 @@ export const TopNav = () => {
   }, []);
 
   return (
-    <nav className="  w-full flex items-center justify-between p-4 bg-[#020041] z-10">
-      <Avatar href={routes.PROFILE} src={user ? user.Avatar : "/images/unknown-user.png"} />
+    <nav className=" relative top-0 w-full flex items-center justify-between p-4 bg-[#020041] z-[100]">
+      <Avatar
+        href={routes.PROFILE}
+        src={user ? user.Avatar : "/images/unknown-user.png"}
+        userName={user ? user.UserName : "User"}
+      />
       <TypographyLogo />
       <div className="flex gap-4">
         <div className="flex flex-col justify-between items-end pt-1 ">

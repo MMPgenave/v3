@@ -16,13 +16,19 @@ import { useSocketOn } from "@/app/lib/hooks/hooks";
 export const GameItem = ({ img, children, handleClick, withInput }) => {
   const dispatch = useAppDispatch();
   const { user } = useAppSelector((state) => state.auth);
-  const [hostIdFromSocket, sethostIdFromSocket] = useState();
-  const [bet, setBet] = useState();
-  console.log("hostId from ", hostIdFromSocket);
+  const roomProperties = useAppSelector((state) => state.roomPropertis);
+  const [hostFromSocket, sethostFromSocket] = useState({});
+  const [betFromSocket, setBetFromSocket] = useState();
 
   async function OpenRoom() {
-    const res = await createRoom(JSON.stringify([hostIdFromSocket, user.id]), "backgammon", bet);
-    socketEmit("roomProperties", { roomId: res.Data.Room.RoomID, hostId: hostIdFromSocket, guestId: user.id });
+    const res = await createRoom(JSON.stringify([hostFromSocket.id, user.id]), "backgammon", betFromSocket);
+    socketEmit("roomProperties", {
+      roomId: res.Data.Room.RoomID,
+      hostId: hostFromSocket.id,
+      hostUserName: hostFromSocket.UserName,
+      guestId: user.id,
+      guestUserName: user.UserName,
+    });
   }
   const fields = [
     {
@@ -62,22 +68,21 @@ export const GameItem = ({ img, children, handleClick, withInput }) => {
     socketEmit("event/start-room", { ...options }, callBack);
   };
 
-  useSocketOn("recive_hostId", (host_id) => {
-    console.log("in useSocketOn :hostId", host_id.hostId);
-    console.log("in useSocketOn :bet", host_id.bet);
-    sethostIdFromSocket(host_id.hostId);
-    setBet(host_id.bet);
-  });
-
   const handleSubmit = (values, setSubmitting) => {
+    OpenRoom();
     joinRoom(values.code, handleSetFailedToJoin, handleSetJoinName, handleSetShouldRedirectTo, toast);
     socketEmit("guest", { guestId: user.id, name: user.UserName });
 
-    OpenRoom();
     setTimeout(() => {
       setSubmitting(false);
     }, 500);
   };
+
+  useSocketOn("gameData/bet-and-host", (data) => {
+    console.log("in useSocketOn :hostId", data.hostId);
+    sethostFromSocket({ id: data.hostId, UserName: data.hostUserName });
+    setBetFromSocket(data.bet);
+  });
 
   return (
     <div className="w-full flex flex-col sm:flex-row justify-between sm:items-center p-4 border-b-2 border-secondary gap-2 sm:gap-0">
@@ -95,7 +100,7 @@ export const GameItem = ({ img, children, handleClick, withInput }) => {
           >
             {({ isSubmitting, errors, touched }) => {
               return (
-                <Form className="flex flex-col items-center gap-2 w-32 lg:rounded-lg">
+                <Form className="flex flex-col items-center gap-2 w-32 lg:rounded-lg text-slate-800">
                   {withInput &&
                     fields.map((field) => (
                       <Field
@@ -110,7 +115,7 @@ export const GameItem = ({ img, children, handleClick, withInput }) => {
                       />
                     ))}
                   <Button
-                    mode="success"
+                    mode="gold"
                     square
                     additionalStyles="rounded-lg m-0 w-full"
                     isLoading={isSubmitting}
@@ -125,9 +130,9 @@ export const GameItem = ({ img, children, handleClick, withInput }) => {
         ) : (
           <Button
             onClick={handleClick}
-            mode="success"
+            mode="gold"
             square
-            additionalStyles="rounded-lg m-0"
+            additionalStyles="rounded-lg m-0 "
             type="submit"
             isLoading={isLoading}
           >

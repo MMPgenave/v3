@@ -82,7 +82,7 @@ export function BackgammonBoard({
   const [moving, setMoving] = useState(false);
   const [sourcePip, setSourcePip] = useState(null);
   const [highlightedPips, setHighlightedPips] = useState({});
-  console.log(`dice:${JSON.stringify(dice)}`);
+  // console.log(`dice:${JSON.stringify(dice)}`);
 
   const clearMove = () => {
     setHighlightedPips({});
@@ -98,7 +98,7 @@ export function BackgammonBoard({
     }
   };
   const [index, setindex] = useState(0);
-  console.log(`index:${index}`);
+  // console.log(`index:${index}`);
   const handleClickPip = (clickedPip) => {
     // console.log(`highlightedPips :${JSON.stringify(highlightedPips)}`);
     // console.log(`clickedPip:${JSON.stringify(clickedPip)}`);
@@ -107,13 +107,13 @@ export function BackgammonBoard({
 
     let correctedClickedPip;
     if (turn === Player.white) {
-      console.log("white moves");
+      // console.log("white moves");
       correctedClickedPip = clickedPip + dice[index];
-      console.log(`correctedClickedPip:${correctedClickedPip}`);
+      // console.log(`correctedClickedPip:${correctedClickedPip}`);
     } else {
-      console.log("black moves");
+      // console.log("black moves");
       correctedClickedPip = clickedPip - dice[index];
-      console.log(`correctedClickedPip:${correctedClickedPip}`);
+      // console.log(`correctedClickedPip:${correctedClickedPip}`);
     }
     if (!moving) startMove(clickedPip);
     else {

@@ -49,16 +49,15 @@ const SignUp = async () => {
           email: "",
           password: "",
           confirmPassword: "",
-            referralID: "",
+          referralID: "",
         }}
         type="sign up"
       >
         <ConnectSocialAccounts />
         <BottomLink link={routes.LOGIN} linkText="sign in">
-          already have an account?
+          <div className=" text-slate-100"> Already have an account?</div>
         </BottomLink>
       </AuthForm>
-
     </Section>
   );
 };

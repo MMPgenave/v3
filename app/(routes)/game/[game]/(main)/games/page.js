@@ -3,7 +3,6 @@ import img from "@/app/lib/assets/img/games/backgammon.jpg";
 import { setShowModal } from "@/app/lib/redux/features/modal/modal-slice";
 import { useAppDispatch, useAppSelector } from "@/app/lib/redux/hooks";
 import { GameItem } from "@/app/UI/components/widgets";
-
 const Game = () => {
   const { show } = useAppSelector((state) => state.modal);
 
@@ -13,7 +12,7 @@ const Game = () => {
   };
 
   return (
-    <>
+    <div className=" text-slate-200">
       <GameItem img={img} withInput>
         join a game
       </GameItem>
@@ -26,7 +25,7 @@ const Game = () => {
       <GameItem handleClick={ToggleModal} img={img}>
         5 points
       </GameItem>
-    </>
+    </div>
   );
 };
 

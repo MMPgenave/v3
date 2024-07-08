@@ -7,13 +7,13 @@ import { useSocketOn } from "@/app/lib/hooks/hooks";
 
 export const GameHeader = ({ className }) => {
   const router = useRouter();
-  const [hostId, setHostId] = useState();
-  const [guestId, setGuestId] = useState();
+  const [hostUserName, sethostUserName] = useState();
+  const [guestUserName, setguestUserName] = useState();
   useSocketOn("recive_roomData", (data) => {
     console.log("in useSocketOn game-header :hostId", data.hostId);
     console.log("in useSocketOn game-header :guestId", data.guestId);
-    setHostId(data.hostId);
-    setGuestId(data.guestId);
+    sethostUserName(data.hostUserName);
+    setguestUserName(data.guestUserName);
   });
 
   return (
@@ -26,12 +26,12 @@ export const GameHeader = ({ className }) => {
         <div className=" flex gap-6 m-auto items-center">
           <div className="flex flex-col items-center">
             <Avatar href={routes.PROFILE} src="/images/avatar.png" />
-            <div>{hostId}</div>
+            <div>{hostUserName}</div>
           </div>
           <span className="font-bold text-xl">vs</span>
           <div className="flex flex-col items-center">
             <Avatar href={routes.PROFILE} src="/images/avatar.png" />
-            <span>{guestId}</span>
+            <span>{guestUserName}</span>
           </div>
         </div>
       </div>

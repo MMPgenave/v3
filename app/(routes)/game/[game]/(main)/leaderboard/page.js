@@ -1,5 +1,7 @@
+"use client";
+
 const LeaderBoard = () => {
-  return <div>LeaderBoard</div>;
+  return <div className=" text-slate-200">LeaderBoard</div>;
 };
 
 export default LeaderBoard;

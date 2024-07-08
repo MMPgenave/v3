@@ -10,13 +10,8 @@ export const HeaderNav = ({ heart, className }) => {
   return (
     <div className={`w-full border-b border-b-secondary ${className}`}>
       <div className="flex justify-between items-center p-2">
-        <i
-          className="bi bi-chevron-left cursor-pointer text-2xl"
-          onClick={() => router.back()}
-        ></i>
-        <span className="capitalize text-blue-violet font-bold m-auto">
-          {title}
-        </span>
+        <i className="bi bi-chevron-left cursor-pointer text-2xl text-slate-200" onClick={() => router.back()}></i>
+        <span className="capitalize text-slate-200 font-bold m-auto">{title}</span>
         {heart && <HeartButton />}
       </div>
     </div>

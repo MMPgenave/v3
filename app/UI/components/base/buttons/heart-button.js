@@ -11,9 +11,7 @@ export const HeartButton = () => {
     <i
       onMouseOver={handleHover}
       onMouseLeave={handleHover}
-      className={`bi ${
-        isHovering ? "bi-heart-fill" : " bi-heart"
-      } cursor-pointer text-hot-pink text-2xl transition-all`}
+      className={`bi ${isHovering ? "bi-heart-fill" : " bi-heart"} cursor-pointer text-gold text-2xl transition-all`}
     ></i>
   );
 };

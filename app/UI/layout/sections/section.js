@@ -1,7 +1,7 @@
 export const Section = ({ children, className }) => {
   return (
     <section
-      className={`main-content p-4 w-full md:w-3/4 md:ml-[25%]  lg:w-4/5 lg:ml-[20%] xl:w-5/6 xl:ml-[16.6667%]   text-slate-50 md:self-end ${className}`}
+      className={`main-content p-4 w-full md:w-3/4 md:ml-[25%]  lg:w-4/5 lg:ml-[20%] xl:w-5/6 xl:ml-[16.6667%]   text-slate-50  ${className}`}
     >
       {children}
     </section>
@@ -19,7 +19,11 @@ export const TournamentsSection = () => {
   );
 };
 export const GamesSection = ({ children }) => {
-  return <Section className="grid lg:grid-cols-2 items-center h-full gap-2">{children}</Section>;
+  return (
+    <Section className="  grid lg:grid-cols-2 justify-center items-center h-full gap-2  border border-red-200 ">
+      {children}
+    </Section>
+  );
 };
 export const ShopSection = ({ children }) => {
   return (

@@ -15,7 +15,6 @@ export function Room() {
   const [failedJoin, setFailedJoin] = useState(false);
   const [Waiting, setWaiting] = useState(true);
   const [roomState, updateRoomState] = useReducer((state, payload) => ({ ...state, ...payload }), {});
-  console.log(`roomState:${JSON.stringify(roomState)}`);
   const [hostId, sethostId] = useState();
   const [guestId, setguestId] = useState();
   const [roomId, setroomId] = useState();
@@ -44,7 +43,6 @@ export function Room() {
   useSocketOn("room/update-room", (room) => {
     console.log("roooom", room);
     updateRoomState(room);
-
     if (room.step === 1) {
       console.log(`game finished.`);
       let winner;

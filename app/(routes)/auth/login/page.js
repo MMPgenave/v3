@@ -1,8 +1,4 @@
-import {
-  BottomLink,
-  ForgotPassword,
-  FormImage,
-} from "@/app/UI/components/base";
+import { BottomLink, ForgotPassword, FormImage } from "@/app/UI/components/base";
 import { AuthForm, ConnectSocialAccounts } from "@/app/UI/components/widgets";
 import { AuthSection } from "@/app/UI/layout";
 import { routes } from "@/app/lib/config/routes";
@@ -41,7 +37,7 @@ const Login = async () => {
         <ConnectSocialAccounts />
 
         <BottomLink link={routes.SIGNUP} linkText="sign up">
-          Create a new account?
+          <div className=" text-slate-100"> Create a new account?</div>
         </BottomLink>
       </AuthForm>
     </AuthSection>

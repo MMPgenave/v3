@@ -61,7 +61,7 @@ export const Button = ({
 
   return (
     <button className={styles} type={type} onClick={handleClick}>
-      {!isLoading && children}
+      {!isLoading && <div className=" text-slate-700">{children}</div>}
       {isLoading && <Spinner />}
     </button>
   );

@@ -6,8 +6,7 @@ import { useAppDispatch, useAppSelector } from "@/app/lib/redux/hooks";
 import { startRoom } from "@/app/actions";
 import { setFailedToJoin, setJoinName, setShouldRedirectTo } from "@/app/lib/redux/features/room/room-slice";
 import { toast } from "react-toastify";
-// import { setHostId, setBet } from "@/app/lib/redux/features/RoomProperties/RoomProperties-slice";
-import { socketEmit } from "@/app/lib/hooks/hooks";
+import { socketEmit, useSocketOn } from "@/app/lib/hooks/hooks";
 
 export const Modal = ({ show, toggleShow }) => {
   const { user } = useAppSelector((state) => state.auth);
@@ -55,7 +54,7 @@ export const Modal = ({ show, toggleShow }) => {
 
   const handleClick = () => {
     startRoom({}, handleSetFailedToJoin, handleSetJoinName, handleSetShouldRedirectTo, toast);
-    socketEmit("hostId", { hostId: user.id, bet: Number(betAmount), hostName: user.UserName });
+    socketEmit("gameData/bet-and-host", { bet: Number(betAmount), hostId: user.id, hostUserName: user.UserName });
     toggleShow(!show);
   };
 
@@ -72,6 +71,9 @@ export const Modal = ({ show, toggleShow }) => {
     setSelected(value);
   };
 
+  useSocketOn("gameData/bet", () => {
+    alert("bet dispatched");
+  });
   return (
     <div
       className={`${

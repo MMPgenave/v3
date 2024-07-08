@@ -25,7 +25,7 @@ const Auth = async () => {
         </Link>
         <Link href={routes.REGISTER} className="w-full">
           <Button mode="gold" outline additionalStyles="w-full">
-            Create an account
+            <div className=" !text-slate-200"> Create an account</div>
           </Button>
         </Link>
       </ButtonContainer>

@@ -5,7 +5,6 @@ import { redirect } from "next/navigation";
 const Layout = ({ children }) => {
   const cookieStore = cookies();
   const session = cookieStore.get("session");
-  // console.log(`session is :${JSON.stringify(session)}`);
   return session ? (
     <div className="h-full">
       <TopNav />

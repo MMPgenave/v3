@@ -2,7 +2,7 @@
 const connection = require("./backend/listeners/connection.js");
 const room = require("./backend/listeners/room.js");
 const game = require("./backend/listeners/game.js");
-const sethostId = require("./backend/listeners/hostId.js");
+const gameData = require("./backend/listeners/gameData.js");
 const setRoomProps = require("./backend/listeners/roomProps.js");
 const chat = require("./backend/listeners/chat.js");
 const { createServer } = require("node:http");
@@ -24,7 +24,7 @@ app.prepare().then(() => {
     chat(socket, io);
     room(socket, io);
     game(socket, io);
-    sethostId(socket, io);
+    gameData(socket, io);
     setRoomProps(socket, io);
   });
 
