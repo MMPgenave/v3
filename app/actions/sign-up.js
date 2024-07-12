@@ -1,9 +1,7 @@
 import { routes } from "../lib/config/routes";
 
 export async function signUp(values) {
-
   try {
-
     const res = await fetch(routes.SIGNUP, {
       method: "POST",
       headers: {
@@ -17,6 +15,7 @@ export async function signUp(values) {
       }),
     });
     const data = await res.json();
+    console.log(`sign up data :${JSON.stringify(data)}`);
     if (res.statusCode === 422) {
       return {
         status: "error",

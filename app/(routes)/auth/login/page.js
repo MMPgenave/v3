@@ -36,7 +36,7 @@ const Login = async () => {
         <ForgotPassword />
         <ConnectSocialAccounts />
 
-        <BottomLink link={routes.SIGNUP} linkText="sign up">
+        <BottomLink link={routes.REGISTER} linkText="sign up">
           <div className=" text-slate-100"> Create a new account?</div>
         </BottomLink>
       </AuthForm>
