@@ -9,9 +9,9 @@ const { createServer } = require("node:http");
 const next = require("next");
 const { Server } = require("socket.io");
 const dev = process.env.NODE_ENV !== "production";
-const hostname = "localhost";
-const port = 3000;
-const app = next({ dev, hostname, port });
+const hostname = "https://subtle-queijadas-5280a0.netlify.app/";
+// const port = 3000;
+const app = next({ dev, hostname });
 const handler = app.getRequestHandler();
 app.prepare().then(() => {
   const httpServer = createServer(handler);
