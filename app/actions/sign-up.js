@@ -14,7 +14,7 @@ export async function signUp(values) {
         referralID: values.referralID,
       }),
     });
-    const data = await res.json();
+    const data = await res;
     console.log(`sign up data :${JSON.stringify(data)}`);
         console.log(`API_URL :${process.env.API_URL}`);
 
