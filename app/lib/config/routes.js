@@ -68,4 +68,4 @@ export const APIRoutes = {
   CLOSE_ROOM: "/api/V1/Game/Room/Close",
 };
 
-export const BASE_URL ='https://subtle-queijadas-5280a0.netlify.app/';
+export const BASE_URL = process.env.BASE_URL;

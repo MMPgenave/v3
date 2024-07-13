@@ -2,7 +2,6 @@
   "name": "torny-town",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://subtle-queijadas-5280a0.netlify.app",
   "scripts": {
     "dev": "node server.js",
     "build": "next build",

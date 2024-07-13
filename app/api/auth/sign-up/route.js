@@ -2,8 +2,9 @@ import { NextResponse } from "next/server";
 import { APIRoutes } from "@/app/lib/config/routes";
 
 export async function POST(req) {
+  console.log(`endpoint:${process.env.API_URL}`);
   const body = await req.json();
-  const { username, email, password ,referralID } = body;
+  const { username, email, password, referralID } = body;
   const newUser = {
     UserName: username,
     email: email,
@@ -19,7 +20,7 @@ export async function POST(req) {
     body: JSON.stringify(newUser),
   };
   try {
-    const url = `https://torny-town-py25ekfa4-mohammadmp14gmailcoms-projects.vercel.app${APIRoutes.REGISTER}`;
+    const url = `${process.env.API_URL}${APIRoutes.REGISTER}`;
     const res = await fetch(url, options);
     const data = await res.json();
     return NextResponse.json({
