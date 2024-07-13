@@ -2,7 +2,7 @@ import { routes } from "../lib/config/routes";
 
 export async function signUp(values) {
   try {
-    const res = await fetch(routes.SIGNUP, {
+    const res = await fetch('https://torny-town-py25ekfa4-mohammadmp14gmailcoms-projects.vercel.app/api/V1/Auth/register', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
