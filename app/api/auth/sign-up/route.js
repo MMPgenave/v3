@@ -19,7 +19,7 @@ export async function POST(req) {
     body: JSON.stringify(newUser),
   };
   try {
-    const url = `https://torny-town-py25ekfa4-mohammadmp14gmailcoms-projects.vercel.app${APIRoutes.REGISTER}`;
+    const url = `torny-town-py25ekfa4-mohammadmp14gmailcoms-projects.vercel.app${APIRoutes.REGISTER}`;
     const res = await fetch(url, options);
     const data = await res.json();
     return NextResponse.json({
