@@ -68,4 +68,4 @@ export const APIRoutes = {
   CLOSE_ROOM: "/api/V1/Game/Room/Close",
 };
 
-export const BASE_URL ='https://torny-town-py25ekfa4-mohammadmp14gmailcoms-projects.vercel.app/';
+export const BASE_URL ='https://subtle-queijadas-5280a0.netlify.app/';
