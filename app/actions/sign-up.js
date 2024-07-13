@@ -3,7 +3,7 @@ import { routes } from "../lib/config/routes";
 export async function signUp(values) {
   try {
     console.log(`API_URL :${process.env.API_URL}`);
-    const res = await fetch(routes.REGISTER, {
+    const res = await fetch(routes.SIGNUP, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
