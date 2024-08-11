@@ -16,17 +16,16 @@ const handler = app.getRequestHandler();
 app.prepare().then(() => {
   const httpServer = createServer(handler);
 
-  // const io = new Server(httpServer);
+  const io = new Server(httpServer);
 
-  // io.on("connection", (socket) => {
-
-  //   connection(socket, io);
-  //   chat(socket, io);
-  //   room(socket, io);
-  //   game(socket, io);
-  //   gameData(socket, io);
-  //   setRoomProps(socket, io);
-  // });
+  io.on("connection", (socket) => {
+    connection(socket, io);
+    chat(socket, io);
+    room(socket, io);
+    game(socket, io);
+    gameData(socket, io);
+    setRoomProps(socket, io);
+  });
 
   httpServer
     .once("error", (err) => {

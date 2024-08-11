@@ -1,3 +1,6 @@
+"use client";
+import { useState } from "react";
+import { UploadImage } from "@/app/actions/uploadImage";
 export const AddButton = ({ className }) => {
   return (
     <i
@@ -11,7 +14,18 @@ export const BannerAddButton = () => {
 };
 
 export const AddImageButton = () => {
+  const [file, setFile] = useState();
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!file) return;
+
+    await UploadImage(file);
+  };
   return (
-    <i className="absolute bi bi-camera2 bg-blue-violet rounded-full flex items-center p-2 text-white cursor-pointer bottom-0 -right-2 border-2 "></i>
+    <form onSubmit={onSubmit}>
+      <input type="file" name="file" onChange={(e) => setFile(e.target.files?.[0])} />
+      <input type="submit" value={"Upload"} />
+    </form>
   );
 };

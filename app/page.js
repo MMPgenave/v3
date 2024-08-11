@@ -1,4 +1,3 @@
-import { GetStarted } from "@/app/UI/components/widgets";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { routes } from "./lib/config/routes";

@@ -1,26 +1,25 @@
-import { NextResponse } from "next/server";
 import { APIRoutes } from "@/app/lib/config/routes";
+import { NextResponse } from "next/server";
+import { cookies } from "next/headers";
 
 export async function POST(req) {
-  console.log(`endpoint:${process.env.API_URL}`);
-  const body = await req.json();
-  const { username, email, password, referralID } = body;
-  const newUser = {
-    UserName: username,
-    email: email,
-    password: password,
-    ReferralID: referralID,
-  };
+  const cookieStore = cookies();
+  const token = cookieStore.get("token");
+  if (!token) {
+    return NextResponse.json({ message: "No token found" });
+  }
+  const data = await req.json();
+  const { UserName } = data;
   const options = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Accept: "application/json",
+      Authorization: `Bearer ${token.value}`,
     },
-    body: JSON.stringify(newUser),
+    body: JSON.stringify({ UserName }),
   };
   try {
-    const url = `https://torny-town-api.vercel.app${APIRoutes.REGISTER}`;
+    const url = `${process.env.API_URL}${APIRoutes.CHANGE_USERNAME}`;
     const res = await fetch(url, options);
     const data = await res.json();
     return NextResponse.json({

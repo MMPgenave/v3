@@ -49,7 +49,7 @@ export function DialogDemo() {
   };
 
   return (
-    <div className="absolute top-[22rem] right-0 ">
+    <div className="fixed bottom-[4rem]  right-8 md:bottom-2 ">
       <Dialog>
         <DialogTrigger asChild>
           <Image src="/icons/add-friends-7.svg" width={50} height={50} alt="add" />

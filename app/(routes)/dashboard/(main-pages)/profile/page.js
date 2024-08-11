@@ -19,13 +19,11 @@ const Profile = () => {
     <Section>
       <ProfileBanner />
       <ProfileInfo />
-      <div  className="grid grid-cols-1 md:grid-cols-2  md:grid-rows-4 w-full gap-2">
-          <ProfileField title="FirstName">
-              {user.FirstName ? `${user.FirstName}` : "Your First Name Goes Here"}
-          </ProfileField>
-          <ProfileField title="LastName">
-              {user.LastName ? `${user.LastName}` : "Your Last Name Goes Here"}
-          </ProfileField>
+      <div className="grid grid-cols-1 md:grid-cols-2  md:grid-rows-4 w-full gap-2">
+        <ProfileField title="FirstName">
+          {user.FirstName ? `${user.FirstName}` : "Your First Name Goes Here"}
+        </ProfileField>
+        <ProfileField title="LastName">{user.LastName ? `${user.LastName}` : "Your Last Name Goes Here"}</ProfileField>
         <ProfileField title="bio" className="md:row-start-2 row-end-6">
           {user.Bio ? `${user.Bio}` : "Your Bio Goes Here"}
         </ProfileField>

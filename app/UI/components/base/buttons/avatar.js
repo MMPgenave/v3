@@ -15,7 +15,7 @@ export const Avatar = ({ className, href, src, userName }) => {
         width={100}
         height={100}
         alt="avatar"
-        className={`w-12 sm:w-16 rounded-full cursor-pointer border-2 border-slate-300 ${className}`}
+        className={` rounded-full cursor-pointer border-2 border-slate-300 ${className}`}
       />
       <div className=" text-slate-200">{userName}</div>
     </Link>

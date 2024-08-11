@@ -46,6 +46,8 @@ export const routes = {
     BACKGAMMON: "/game/backgammon/games",
   },
   BACKGAMMONMATCH: "/backgammon/match",
+  CHANGE_USERNAME: "/api/users/changeUsername",
+  UPLOAD_IMAGE: "/api/users/uploadImage",
 };
 
 export const APIRoutes = {
@@ -66,6 +68,8 @@ export const APIRoutes = {
   GET_USER_DETAILS: "/api/V1/User/details",
   CREATE_ROOM: "/api/V1/Game/Room/Create",
   CLOSE_ROOM: "/api/V1/Game/Room/Close",
+  CHANGE_USERNAME: "/api/V1/User/profile/UpdateUserName",
+  CHANGE_AVATAR: "/api/V1/User/profile/UpdateAvatar",
 };
 
 export const BASE_URL = process.env.BASE_URL;

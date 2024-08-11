@@ -50,10 +50,7 @@ export const ProfileInfo = () => {
   );
   return (
     <>
-      <div
-        style={{ "background-color": "black" }}
-        className="w-4/5 sm-mobile:w-auto text-sm sm:text-base flex flex-col sm-mobile:flex-row gap-1 shadow-lg justify-center p-2 rounded-lg text-white font-bold"
-      >
+      <div className="w-4/5 sm-mobile:w-auto bg-black text-sm sm:text-base flex flex-col sm-mobile:flex-row gap-1 shadow-lg justify-center p-2 rounded-lg text-white font-bold">
         <div className="flex flex-col items-center sm-mobile:border-r-2 border-secondary pe-2">
           <h3 className="capitalize font-bold text-primary">total games</h3>
           {user.total_game_played}

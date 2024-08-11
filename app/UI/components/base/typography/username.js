@@ -3,25 +3,22 @@ import * as Yup from "yup";
 import { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import { Input } from "../inputs";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
+import { usePathname } from "next/navigation";
+import { changeUsernameAction } from "@/app/actions/change-username";
 export const UserName = ({ username }) => {
   const [active, setActive] = useState(false);
-
+  const path = usePathname();
   const handleSetActive = () => {
     setActive(true);
   };
-  const handleSaveName = (val) => {
+  const handleSaveName = async (val) => {
     setActive(false);
-    toast(`${val} successfully edited`);
+    await changeUsernameAction(val.username);
   };
 
   const NameSchema = Yup.object().shape({
-    username: Yup.string()
-      .required("Required")
-      .min(3, "Too Short!")
-      .max(25, "Too Long!"),
+    username: Yup.string().required("Required").min(3, "Too Short!").max(25, "Too Long!"),
   });
   return (
     <>
@@ -32,7 +29,7 @@ export const UserName = ({ username }) => {
           }}
           onSubmit={async (values) => {
             // Submit the form values
-            handleSaveName(Object.keys(values)[0]);
+            handleSaveName(values);
           }}
           validationSchema={NameSchema}
         >
@@ -50,7 +47,7 @@ export const UserName = ({ username }) => {
             };
 
             return (
-              <Form className="absolute -left-24 top-[90px] w-80 p-4 items-center gap-2">
+              <Form className="absolute text-dim-gray -left-24 top-[90px] w-80 p-4 items-center gap-2">
                 <Field {...props} />
                 <button type="submit">
                   <i className="absolute top-4 right-4 text-5xl text-success cursor-pointer hover:text-green bi bi-check"></i>
@@ -60,8 +57,8 @@ export const UserName = ({ username }) => {
           }}
         </Formik>
       ) : (
-        <div className="absolute py-2 lowercase flex items-center gap-1 font-bold text-dark-slate-blue">
-          <div className="w-full flex justify-between items-center">
+        <div className="absolute max-sm:ml-4 py-4 lowercase flex items-center gap-1 font-bold text-dark-slate-blue">
+          <div className="w-full text-2xl capitalize flex justify-between items-center">
             <span>{username}</span>
             <i
               onClick={handleSetActive}

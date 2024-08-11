@@ -8,6 +8,8 @@ import ReduxProvider from "./lib/redux/redux-provider";
 import { AuthUpdater } from "./UI/components/base";
 import { ToastContainer } from "react-toastify";
 import { Body } from "./UI/layout";
+// import { Agent, setGlobalDispatcher } from "undici"; // زمان تابع فچ رو زیاد میکنه
+// setGlobalDispatcher(new Agent({ connect: { timeout: 60_000 } }));
 const comic = Comic_Neue({ subsets: ["latin"], weight: ["300", "400", "700"] });
 
 export const metadata = {
