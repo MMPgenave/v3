@@ -23,9 +23,24 @@ export const AddImageButton = () => {
     await UploadImage(file);
   };
   return (
-    <form onSubmit={onSubmit}>
-      <input type="file" name="file" onChange={(e) => setFile(e.target.files?.[0])} />
-      <input type="submit" value={"Upload"} />
-    </form>
+    <div className="flex flex-col items-center justify-center ">
+      <form onSubmit={onSubmit} className="w-full max-w-sm">
+        <input
+          type="file"
+          name="file"
+          onChange={(e) => setFile(e.target.files?.[0])}
+          className="mb-4 p-2 border border-gray-300 rounded-lg w-full"
+        />
+
+        {file && (
+          <button
+            type="submit"
+            className="w-full px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition duration-200"
+          >
+            Upload
+          </button>
+        )}
+      </form>
+    </div>
   );
 };

@@ -2,8 +2,6 @@ import { APIRoutes } from "@/app/lib/config/routes";
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import fs from "node:fs/promises";
-import { join } from "path";
-import { revalidatePath } from "next/cache";
 export async function POST(request) {
   const cookieStore = cookies();
   const token = cookieStore.get("token");
@@ -30,8 +28,6 @@ export async function POST(request) {
     const url = `${process.env.API_URL}${APIRoutes.CHANGE_AVATAR}`;
     const res = await fetch(url, options);
     const data = await res.json();
-    const path = req.nextUrl.pathname;
-    revalidatePath(path);
     return NextResponse.json({
       ...data,
     });

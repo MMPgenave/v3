@@ -2,7 +2,7 @@ import { Button, Progress } from "../../base";
 
 export const UserCollection = ({ children }) => {
   return (
-    <div style={{ 'background-color': 'black' , 'color' : 'white' }} className="md:col-start-2 md:row-span-5 justify-center w-full flex flex-col items-center p-4 bg-white shadow-md rounded-lg font-bold">
+    <div className=" bg-black text-[#fff] md:col-start-2 md:row-span-5 justify-center w-full flex flex-col items-center p-4  shadow-md rounded-lg font-bold">
       <h2 className="capitalize font-bold text-blue-violet text-center flex ps-2 justify-between items-center">
         <span>my collection</span>
       </h2>

@@ -3,10 +3,8 @@ import * as Yup from "yup";
 import { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import { Input } from "../inputs";
-
 import { usePathname } from "next/navigation";
-import { changeUsernameAction } from "@/app/actions/change-username";
-export const UserName = ({ username }) => {
+export const UserName = ({ username, changeUsernameAction }) => {
   const [active, setActive] = useState(false);
   const path = usePathname();
   const handleSetActive = () => {

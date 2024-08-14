@@ -1,9 +1,9 @@
-"use client";
 import banner from "@/app/lib/assets/img/banner.png";
 import { BannerAddButton as AddButton, Banner, AddImageButton, UserName, ProfileAvatar } from "../../base";
 import { AvatarContainer, ProfileBannerContainer as Container } from "@/app/UI/layout";
 import { useAppSelector } from "@/app/lib/redux/hooks";
 import { routes } from "@/app/lib/config/routes";
+import { changeUsernameAction } from "@/app/actions/change-username.action";
 
 export const ProfileBanner = () => {
   const { user } = useAppSelector((state) => state.auth);
@@ -14,7 +14,7 @@ export const ProfileBanner = () => {
       <AvatarContainer>
         <ProfileAvatar href={routes.PROFILE} src={user.Avatar} />
         <AddImageButton />
-        <UserName username={user.UserName} />
+        <UserName username={user.UserName} changeUsernameAction={changeUsernameAction} />
       </AvatarContainer>
     </Container>
   );

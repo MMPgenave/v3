@@ -22,6 +22,7 @@ export async function POST(req) {
     const url = `${process.env.API_URL}${APIRoutes.CHANGE_USERNAME}`;
     const res = await fetch(url, options);
     const data = await res.json();
+
     return NextResponse.json({
       ...data,
     });
