@@ -28,9 +28,9 @@ export const ProfileField = ({ children, title, className }) => {
     <div
       className={`${className} flex flex-col w-full bg-black text-slate-100 ${
         title === "bio" ? "" : ""
-      } flex text-shark p-4 bg-white shadow-md rounded-lg font-bold `}
+      } flex text-shark p-4  shadow-md rounded-lg font-bold `}
     >
-      <h2 className="capitalize font-bold text-blue-violet">{title}</h2>
+      <h2 className="capitalize font-bold text-gold/80">{title}</h2>
       <div className="w-full flex justify-between items-center">
         {active ? (
           <Formik
@@ -79,7 +79,7 @@ export const ProfileField = ({ children, title, className }) => {
           </Formik>
         ) : (
           <div className="w-full flex justify-between items-center">
-            <span>{children}</span>
+            <span className=" text-slate-300">{children}</span>
             <i
               onClick={handleSetActive}
               className="bi bi-pencil-fill rounded-full flex items-center text-blue-violet p-2 cursor-pointer text-sm"

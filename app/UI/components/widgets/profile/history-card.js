@@ -3,7 +3,7 @@ import { GameImage, HistoryCardImage, Progress } from "../../base";
 
 export const HistoryCard = ({ img }) => {
   return (
-    <div className="bg-primary rounded-lg shadow-lg w-full flex items-center p-4">
+    <div className="bg-black/50 rounded-lg shadow-lg w-full flex items-center p-4">
       <HistoryCardImage img={img} />
 
       <div className="w-full p-2">

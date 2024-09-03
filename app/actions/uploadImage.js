@@ -1,7 +1,8 @@
 import { revalidatePath } from "next/cache";
-
+import { routes } from "../lib/config/routes";
 export async function UploadImage(file) {
   try {
+    console.log("in function");
     const data = new FormData();
     data.set("file", file);
     const res = await fetch(routes.UPLOAD_IMAGE, {

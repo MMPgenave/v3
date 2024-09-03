@@ -1,5 +1,7 @@
+"use client";
 import { routes } from "@/app/lib/config/routes";
 import { BottomNavButton, GameNavButton } from "../../components/base";
+
 export const BottomMenu = () => {
   return (
     <nav

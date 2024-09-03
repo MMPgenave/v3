@@ -17,15 +17,14 @@ export const AddImageButton = () => {
   const [file, setFile] = useState();
   const onSubmit = async (e) => {
     e.preventDefault();
-
     if (!file) return;
-
     await UploadImage(file);
   };
   return (
     <form onSubmit={onSubmit}>
-      <input type="file" name="file" onChange={(e) => setFile(e.target.files?.[0])} />
-      <input type="submit" value={"Upload"} />
+      <input type="file" name="file" className=" text-slate-800" onChange={(e) => setFile(e.target.files?.[0])} />
+
+      {file && <input type="submit" value={"Upload"} className=" text-slate-800 hover:cursor-pointer" />}
     </form>
   );
 };

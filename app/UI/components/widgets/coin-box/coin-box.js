@@ -6,15 +6,15 @@ import Link from "next/link";
 export const CoinBox = () => {
   const { user } = useAppSelector((state) => state.auth);
   return (
-    <div className="flex gap-2 text-lg p-2 items-center">
+    <div className="flex gap-6 text-xl p-2 items-center my-3 ">
       <div className="flex items-center gap-1">
         <i className="bi bi-coin text-2xl text-neon-carrot"></i>
-        <span className=" text-sm font-bold">{user.Coin}</span>
+        <span className="  font-bold text-black">{user.Coin}</span>
         <i className="bi bi-plus cursor-pointer bg-blue-violet text-white rounded-full flex items-center p-1 text-sm"></i>
       </div>
       <div className="flex items-center gap-1">
         <i className="bi bi-gem text-2xl text-info"></i>
-        <span className=" text-sm font-bold">{user.Gem}</span>
+        <span className="  font-bold text-black">{user.Gem}</span>
         <i className="bi bi-plus cursor-pointer bg-blue-violet text-white rounded-full flex items-center p-1 text-sm"></i>
       </div>
       <i className="bi bi-wallet-fill cursor-pointer text-info text-2xl"></i>
