@@ -4,7 +4,7 @@ import { BannerAddButton as AddButton, Banner, AddImageButton, UserName, Profile
 import { AvatarContainer, ProfileBannerContainer as Container } from "@/app/UI/layout";
 import { useAppSelector } from "@/app/lib/redux/hooks";
 import Image from "next/image";
-
+import { changeUsernameAction } from "@/app/actions/change-username.action";
 export const ProfileBanner = () => {
   const { user } = useAppSelector((state) => state.auth);
   return (

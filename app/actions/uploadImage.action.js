@@ -1,5 +1,6 @@
 import { routes } from "@/app/lib/config/routes";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export async function UploadImage(file) {
   try {
     console.log("in function");

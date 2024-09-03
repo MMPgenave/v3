@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { UploadImage } from "@/app/actions/uploadImage";
+import { UploadImage } from "@/app/actions/uploadImage.action";
 export const AddButton = ({ className }) => {
   return (
     <i
