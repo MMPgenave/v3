@@ -27,11 +27,6 @@ export const GamesSection = ({ children }) => {
 };
 export const ShopSection = ({ children }) => {
   return (
-    <Section
-      style={{ "background-color": "#000000", color: "white", "border-radius": "5%" }}
-      className="flex flex-col items-center bg-white gap-6 mb-20"
-    >
-      {children}
-    </Section>
+    <Section className="flex flex-col items-center bg-black text-[#fff] rounded-sm gap-6 mb-20">{children}</Section>
   );
 };

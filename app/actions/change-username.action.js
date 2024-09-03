@@ -1,9 +1,7 @@
-// "use server";
 import { routes } from "@/app/lib/config/routes";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 export async function changeUsernameAction(name) {
-  console.log(`name in action:${name}`);
   try {
     const res = await fetch(routes.CHANGE_USERNAME, {
       method: "POST",

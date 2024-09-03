@@ -1,5 +1,5 @@
-import { revalidatePath } from "next/cache";
-import { routes } from "../lib/config/routes";
+import { routes } from "@/app/lib/config/routes";
+
 export async function UploadImage(file) {
   try {
     console.log("in function");
@@ -14,7 +14,6 @@ export async function UploadImage(file) {
 
       throw new Error(await res.text());
     }
-    revalidatePath("/", "layout");
 
     toast.success("Avatar changed successfully.");
   } catch (error) {

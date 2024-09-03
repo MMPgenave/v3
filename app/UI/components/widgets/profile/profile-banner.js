@@ -1,4 +1,3 @@
-"use client";
 import banner from "@/app/lib/assets/img/banner.png";
 import { BannerAddButton as AddButton, Banner, AddImageButton, UserName, ProfileAvatar } from "../../base";
 import { AvatarContainer, ProfileBannerContainer as Container } from "@/app/UI/layout";
@@ -20,7 +19,7 @@ export const ProfileBanner = () => {
           className={` rounded-full cursor-pointer border-2 border-gold`}
         />
         <AddImageButton />
-        <UserName username={user.UserName} />
+        <UserName username={user.UserName} changeUsernameAction={changeUsernameAction} />
       </AvatarContainer>
     </Container>
   );
