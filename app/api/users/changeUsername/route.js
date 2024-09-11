@@ -1,7 +1,7 @@
 import { APIRoutes } from "@/app/lib/config/routes";
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-
+import { revalidatePath } from "next/cache";
 export async function POST(req) {
   const cookieStore = cookies();
   const token = cookieStore.get("token");
@@ -22,7 +22,7 @@ export async function POST(req) {
     const url = `${process.env.API_URL}${APIRoutes.CHANGE_USERNAME}`;
     const res = await fetch(url, options);
     const data = await res.json();
-
+    revalidatePath("/", "layout");
     return NextResponse.json({
       ...data,
     });

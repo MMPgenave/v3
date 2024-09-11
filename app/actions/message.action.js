@@ -1,4 +1,3 @@
-import { array } from "yup";
 import { routes } from "../lib/config/routes";
 
 export async function postMessage(ReceiverID, Type, Message) {

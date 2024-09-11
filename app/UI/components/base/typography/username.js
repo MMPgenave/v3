@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import { Input } from "../inputs";
 import { usePathname } from "next/navigation";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export const UserName = ({ username, changeUsernameAction }) => {
   const [active, setActive] = useState(false);
   const path = usePathname();
@@ -12,7 +14,7 @@ export const UserName = ({ username, changeUsernameAction }) => {
   };
   const handleSaveName = async (val) => {
     setActive(false);
-    await changeUsernameAction(val.username);
+    const res = await changeUsernameAction(val.username);
   };
 
   const NameSchema = Yup.object().shape({

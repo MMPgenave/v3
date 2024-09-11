@@ -3,8 +3,8 @@ import UserDetailsPage from "@/app/UI/components/base/UserDetailsPage/UserDetail
 import { useState, useEffect } from "react";
 import { getUserDataByUserName } from "@/app/actions/get-user-details";
 import { getAuthorFriends } from "@/app/actions/get-friends";
-const Page = ({ params }) => {
-  const userName = params.id;
+const Page = ({ params: { id } }) => {
+  const userName = id;
   const [userDetails, setuserDetails] = useState();
   const [authorFriendsList, setauthorFriendsList] = useState([]);
 

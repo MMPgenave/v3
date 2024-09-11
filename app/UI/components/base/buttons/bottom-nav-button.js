@@ -18,10 +18,10 @@ export const BottomNavButton = ({ icon, href, title }) => {
       {icon === "person-circle" && user ? (
         <Image
           src={user.Avatar}
-          width={40}
-          height={40}
+          width={44}
+          height={44}
           alt="avatar"
-          className={` rounded-full cursor-pointer border-2 border-gold`}
+          className={`w-10 h-10 rounded-full  cursor-pointer border-2 ${pathname === href && "border-info"}`}
         />
       ) : (
         <i className={`bi bi-${icon}`}></i>

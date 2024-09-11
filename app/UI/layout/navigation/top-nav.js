@@ -1,7 +1,6 @@
 "use client";
 import { routes } from "@/app/lib/config/routes";
 import { Avatar, LogoutButton, TypographyLogo } from "../../components/base";
-// import { useAppSelector } from "@/app/lib/redux/hooks";
 import { useEffect, useState } from "react";
 import { getAuthorData } from "@/app/actions";
 import { Knock } from "@knocklabs/node";

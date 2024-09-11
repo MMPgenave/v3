@@ -121,7 +121,7 @@ export const ChatWithOthers = ({ friendUserName }) => {
                       <div className="avatar-container">
                         <Image
                           className="avatar"
-                          src={true ? user.Avatar : friend.Avatar}
+                          src={chat.SenderID === user.id ? user.Avatar : friend.Avatar}
                           width={44}
                           height={44}
                           alt="avatar"
