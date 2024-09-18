@@ -2,12 +2,19 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { useAppSelector } from "@/app/lib/redux/hooks";
+import { useQuery } from "@tanstack/react-query";
+import { getAuthorData } from "@/app/actions";
 
 export const BottomNavButton = ({ icon, href, title }) => {
   const pathname = usePathname();
-  const { user } = useAppSelector((state) => state.auth);
+  const userQuery = useQuery({
+    queryKey: ["author"],
+    queryFn: () => getAuthorData(),
+    suspense: true,
+    staleTime: 5 * 1000,
+  });
 
+  const user = userQuery.data.Data.User;
   return (
     <Link
       href={href}

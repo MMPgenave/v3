@@ -8,10 +8,9 @@ import ReduxProvider from "./lib/redux/redux-provider";
 import { AuthUpdater } from "./UI/components/base";
 import { ToastContainer } from "react-toastify";
 import { Body } from "./UI/layout";
-// import { Agent, setGlobalDispatcher } from "undici"; // زمان تابع فچ رو زیاد میکنه
-// setGlobalDispatcher(new Agent({ connect: { timeout: 60_000 } }));
-const comic = Comic_Neue({ subsets: ["latin"], weight: ["300", "400", "700"] });
 
+const comic = Comic_Neue({ subsets: ["latin"], weight: ["300", "400", "700"] });
+import ReactQueryClientProvider from "./ReactQueryClientProvider";
 export const metadata = {
   manifest: "/manifest.json",
   title: "Torny Town",
@@ -22,13 +21,15 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <ReduxProvider>
-        <Body style={comic.className}>
-          <Suspense fallback={<Loading />}>
-            <main className="  min-h-screen bg-blackTheme ">{children}</main>
-          </Suspense>
-          <AuthUpdater />
-          <ToastContainer />
-        </Body>
+        <ReactQueryClientProvider>
+          <Body style={comic.className}>
+            <Suspense fallback={<Loading />}>
+              <main className="  min-h-screen bg-blackTheme ">{children}</main>
+            </Suspense>
+            <AuthUpdater />
+            <ToastContainer />
+          </Body>
+        </ReactQueryClientProvider>
       </ReduxProvider>
     </html>
   );

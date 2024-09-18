@@ -10,11 +10,19 @@ import {
 } from "@/app/UI/components/widgets";
 import gameImage from "@/app/lib/assets/img/games/backgammon.jpg";
 import { ProfileSection as Section } from "@/app/UI/layout";
-import { useAppSelector } from "@/app/lib/redux/hooks";
 import { collectibles } from "@/app/lib/data/images";
+import { useQuery } from "@tanstack/react-query";
+import { getAuthorData } from "@/app/actions/get-author-data";
 
 const Profile = () => {
-  const { user } = useAppSelector((state) => state.auth);
+  const userQuery = useQuery({
+    queryKey: ["author"],
+    queryFn: () => getAuthorData(),
+    suspense: true,
+    staleTime: 5 * 1000,
+  });
+
+  const user = userQuery.data.Data.User;
   return (
     <Section>
       <ProfileBanner />

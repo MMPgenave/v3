@@ -1,13 +1,18 @@
 "use client";
 import { useState } from "react";
 import { UploadImage } from "@/app/actions/uploadImage.action";
-
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 export const ProileChanger = () => {
   const [file, setFile] = useState();
-  const onSubmit = async (e) => {
+  const queryClient = useQueryClient();
+  const { mutate } = useMutation({
+    mutationFn: (data) => UploadImage(data),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["author"] }),
+  });
+  const onSubmit = (e) => {
     e.preventDefault();
     if (!file) return;
-    await UploadImage(file);
+    mutate(file);
   };
   return (
     <form onSubmit={onSubmit} className=" mt-4 mx-auto ">

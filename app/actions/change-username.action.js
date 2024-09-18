@@ -2,7 +2,6 @@ import { routes } from "@/app/lib/config/routes";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 export async function changeUsernameAction(name) {
-  console.log("action");
   try {
     const res = await fetch(routes.CHANGE_USERNAME, {
       method: "POST",
@@ -30,7 +29,7 @@ export async function changeUsernameAction(name) {
         message: data.message,
       };
     } else if (data.Status === "success") {
-      toast.success(" Successfully username changed.");
+      toast.success("UserName successfully changed.");
       return;
     }
   } catch (error) {

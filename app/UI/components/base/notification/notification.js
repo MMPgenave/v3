@@ -1,12 +1,10 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 import "@knocklabs/react-notification-feed/dist/index.css";
+
 import { KnockFeedProvider, NotificationIconButton, NotificationFeedPopover } from "@knocklabs/react-notification-feed";
 
 import { getAuthorData } from "@/app/actions";
-
-// Required CSS import, unless you're overriding the styling
-// import "@knocklabs/react/dist/index.css";
 
 const YourAppLayout = () => {
   const [isVisible, setIsVisible] = useState(false);

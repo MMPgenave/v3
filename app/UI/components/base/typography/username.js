@@ -3,25 +3,30 @@ import * as Yup from "yup";
 import { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import { Input } from "../inputs";
-import { usePathname } from "next/navigation";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+
 export const UserName = ({ username, changeUsernameAction }) => {
   const [active, setActive] = useState(false);
-  const path = usePathname();
+  const queryClient = useQueryClient();
+  const { mutate } = useMutation({
+    mutationFn: (name) => changeUsernameAction(name),
+    onSuccess: queryClient.invalidateQueries({ queryKey: ["author"] }),
+  });
+
   const handleSetActive = () => {
     setActive(true);
   };
+
   const handleSaveName = async (val) => {
     setActive(false);
-    const res = await changeUsernameAction(val.username);
+    mutate(val.username);
   };
 
   const NameSchema = Yup.object().shape({
     username: Yup.string().required("Required").min(3, "Too Short!").max(25, "Too Long!"),
   });
   return (
-    <>
+    <div className=" border border-red-600">
       {active ? (
         <Formik
           initialValues={{
@@ -67,6 +72,6 @@ export const UserName = ({ username, changeUsernameAction }) => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };

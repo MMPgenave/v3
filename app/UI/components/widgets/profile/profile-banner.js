@@ -2,14 +2,21 @@
 import banner from "@/app/lib/assets/img/banner.png";
 import { BannerAddButton as AddButton, Banner, UserName } from "../../base";
 import { AvatarContainer, ProfileBannerContainer as Container } from "@/app/UI/layout";
-import { useAppSelector } from "@/app/lib/redux/hooks";
 import Image from "next/image";
 import { changeUsernameAction } from "@/app/actions/change-username.action";
 import { ProileChanger } from "@/app/UI/components/base/ProfileChanger";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/app/UI/components/ui/dialog";
+import { useQuery } from "@tanstack/react-query";
+import { getAuthorData } from "@/app/actions/get-author-data";
 export const ProfileBanner = () => {
-  const { user } = useAppSelector((state) => state.auth);
+  const userQuery = useQuery({
+    queryKey: ["author"],
+    queryFn: () => getAuthorData(),
+    suspense: true,
+    staleTime: 5 * 1000,
+  });
 
+  const user = userQuery.data.Data.User;
   return (
     <Container>
       <Banner img={banner} />

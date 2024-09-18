@@ -10,8 +10,15 @@ export async function getAuthorData() {
       },
     });
     const data = await res.json();
-    // console.log(`user data is :${JSON.stringify(data)}`);
-    return data;
+    console.log(`user data is :${JSON.stringify(data)}`);
+    if (data.Status !== "success") {
+      return {
+        status: "error",
+        message: data.message,
+      };
+    } else if (data.Status === "success") {
+      return data;
+    }
   } catch (error) {
     console.error(error);
   }
