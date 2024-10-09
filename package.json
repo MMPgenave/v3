@@ -13,6 +13,7 @@
     "@ducanh2912/next-pwa": "^10.2.7",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
+    "@fingerprintjs/fingerprintjs-pro-react": "^2.6.3",
     "@hookform/resolvers": "^3.4.0",
     "@juggle/resize-observer": "^3.4.0",
     "@knocklabs/node": "^0.6.11",

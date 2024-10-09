@@ -8,9 +8,9 @@ import ReduxProvider from "./lib/redux/redux-provider";
 import { AuthUpdater } from "./UI/components/base";
 import { ToastContainer } from "react-toastify";
 import { Body } from "./UI/layout";
-
 const comic = Comic_Neue({ subsets: ["latin"], weight: ["300", "400", "700"] });
 import ReactQueryClientProvider from "./ReactQueryClientProvider";
+import FingerPrintClientProvider from "./FingerPrintClientProvider";
 export const metadata = {
   manifest: "/manifest.json",
   title: "Torny Town",
@@ -20,17 +20,19 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   return (
     <html lang="en">
-      <ReduxProvider>
-        <ReactQueryClientProvider>
-          <Body style={comic.className}>
-            <Suspense fallback={<Loading />}>
-              <main className="  min-h-screen bg-blackTheme ">{children}</main>
-            </Suspense>
-            <AuthUpdater />
-            <ToastContainer />
-          </Body>
-        </ReactQueryClientProvider>
-      </ReduxProvider>
+      <FingerPrintClientProvider>
+        <ReduxProvider>
+          <ReactQueryClientProvider>
+            <Body style={comic.className}>
+              <Suspense fallback={<Loading />}>
+                <main className="  min-h-screen bg-blackTheme ">{children}</main>
+              </Suspense>
+              <AuthUpdater />
+              <ToastContainer />
+            </Body>
+          </ReactQueryClientProvider>
+        </ReduxProvider>
+      </FingerPrintClientProvider>
     </html>
   );
 }

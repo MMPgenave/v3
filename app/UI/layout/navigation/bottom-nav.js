@@ -1,7 +1,7 @@
 "use client";
 import { routes } from "@/app/lib/config/routes";
 import { BottomNavButton, GameNavButton } from "../../components/base";
-
+import BottomProfileButton from "@/app/UI/components/base/buttons/bottom-profile-button";
 export const BottomMenu = () => {
   return (
     <nav
@@ -13,7 +13,7 @@ export const BottomMenu = () => {
       <BottomNavButton icon="cup" href={routes.TOURNAMENTS} title="tournaments"></BottomNavButton>
       <GameNavButton href={routes.FUN.GAMES} title="games" />
       <BottomNavButton icon="shop" href={"/dashboard/shop/items"} title="shop"></BottomNavButton>
-      <BottomNavButton icon="person-circle" href={routes.PROFILE} title="profile"></BottomNavButton>
+      <BottomProfileButton href={routes.PROFILE} title="profile" />
     </nav>
   );
 };
