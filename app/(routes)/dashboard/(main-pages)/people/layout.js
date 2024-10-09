@@ -5,7 +5,7 @@ import { DialogDemo } from "@/app/UI/components/base/pupop/popup.js";
 const Layout = ({ children }) => {
   const tabs = ["friends", "friends-of", "groups"];
   return (
-    <Section>
+    <Section className={"max-sm:mt-[164px] mt-[112px]"}>
       <Tabs tabs={tabs} tab="friends" />
       {children}
       <DialogDemo />

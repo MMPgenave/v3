@@ -4,6 +4,8 @@ import { useQuery } from "@tanstack/react-query";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { getAuthorData } from "@/app/actions/get-author-data";
+
 const BottomProfileButton = ({ href, title }) => {
   const path = usePathname();
   const { isPending, error, data, isFetching } = useQuery({

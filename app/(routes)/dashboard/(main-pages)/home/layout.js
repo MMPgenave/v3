@@ -7,20 +7,18 @@ import Image from "next/image";
 const Layout = ({ children }) => {
   const tabs = ["feed", "news", "global"];
   return (
-    <div className=" max-sm:mt-[164px] mt-[112px]">
-      <Section>
-        <Tabs tabs={tabs} tab="feed" />
-        {children}
-        <Link
-          href={"/dashboard/people/friends"}
-          className="fixed bottom-[4rem]  right-8 md:bottom-2 bg-transparent rounded-full w-12 h-12"
-        >
-          <Fab color="#1687EF" aria-label="add" size="medium">
-            <div className=" text-3xl">+</div>
-          </Fab>
-        </Link>
-      </Section>
-    </div>
+    <Section className=" max-sm:mt-[164px] mt-[112px] ">
+      <Tabs tabs={tabs} tab="feed" />
+      {children}
+      <Link
+        href={"/dashboard/people/friends"}
+        className="fixed bottom-[4rem]  right-8 md:bottom-2 bg-transparent rounded-full w-12 h-12"
+      >
+        <Fab color="#1687EF" aria-label="add" size="medium">
+          <div className=" text-3xl">+</div>
+        </Fab>
+      </Link>
+    </Section>
   );
 };
 

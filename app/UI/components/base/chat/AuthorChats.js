@@ -49,8 +49,8 @@ const AuthorChats = () => {
   // console.log(`author in chat:${JSON.stringify(chatData)}`);
 
   return (
-    <div className="mt-3 flex flex-col gap-3  ">
-      {chatData.length !== 0 ? (
+    <div className="mt-3 flex flex-col gap-3 max-sm:pb-[90px]  ">
+      {chatData.length === 0 ? (
         <div>
           <NoResult
             title="You havent chatted with your friends yet."

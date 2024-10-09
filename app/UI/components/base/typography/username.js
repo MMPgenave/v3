@@ -26,7 +26,7 @@ export const UserName = ({ username, changeUsernameAction }) => {
     username: Yup.string().required("Required").min(3, "Too Short!").max(25, "Too Long!"),
   });
   return (
-    <div className=" border border-red-600">
+    <div className=" relative mx-auto">
       {active ? (
         <Formik
           initialValues={{
@@ -47,22 +47,22 @@ export const UserName = ({ username, changeUsernameAction }) => {
               error: errors["username"],
               touched: touched["username"],
               type: "text",
-              icon: "bi-chat-left-heart",
+              icon: "",
               className: "w-full h-[44px]",
             };
 
             return (
-              <Form className="absolute text-dim-gray -left-24 top-[90px] w-80 p-4 items-center gap-2">
+              <Form className="absolute -top-4 text-dim-gray flex left-1/2 transform -translate-x-1/2   w-80 p-4 items-center gap-2">
                 <Field {...props} />
                 <button type="submit">
-                  <i className="absolute top-4 right-4 text-5xl text-success cursor-pointer hover:text-green bi bi-check"></i>
+                  <i className="absolute top-3 right-6 text-5xl text-info cursor-pointer hover:text-green bi bi-check"></i>
                 </button>
               </Form>
             );
           }}
         </Formik>
       ) : (
-        <div className="absolute max-sm:ml-4 py-4 lowercase flex items-center gap-1 font-bold text-dark-slate-blue">
+        <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 py-4 lowercase flex items-center gap-1 font-bold text-dark-slate-blue">
           <div className="w-full text-2xl capitalize flex justify-between items-center">
             <span>{username}</span>
             <i

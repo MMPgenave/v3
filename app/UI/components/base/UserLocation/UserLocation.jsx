@@ -12,7 +12,7 @@ const UserLocation = () => {
     queryFn: () => getLocationByIP(data?.ip),
     enabled: !!data?.ip,
   });
-  console.log(`location data is ${JSON.stringify(countryQuery?.data)}`);
+  // console.log(`location data is ${JSON.stringify(countryQuery?.data)}`);
 
   if (isLoading) return <div className="text-slate-300 text-sm">Loading location...</div>;
   if (error) return <div className=" text-sm text-rose-600 ">Error</div>;

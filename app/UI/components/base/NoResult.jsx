@@ -11,7 +11,7 @@ const NoResult = ({ title, button_content, button_href, description }) => {
       <p className=" text-slate-200 text-center max-sm:text-sm">{description}</p>
       <Link
         href={button_href}
-        className="bg-info/90 max-sm:text-sm   text-lg text-slate-900 rounded-md px-4 py-3 hover:opacity-80"
+        className="bg-info max-sm:text-sm   text-lg text-slate-900 rounded-md px-4 py-3 hover:opacity-90"
       >
         {button_content}
       </Link>

@@ -12,11 +12,11 @@ export const ProfileBanner = () => {
   const userQuery = useQuery({
     queryKey: ["author"],
     queryFn: () => getAuthorData(),
-    suspense: true,
-    staleTime: 5 * 1000,
   });
 
-  const user = userQuery.data.Data.User;
+  if (userQuery.isPending) return <div className=" text-sm text-center">Loading User Profile ...</div>;
+  if (userQuery.error) return <div className=" text-sm text-center text-red-600">Error</div>;
+  const user = userQuery?.data.Data.User;
   return (
     <Container>
       <Banner img={banner} />
@@ -42,7 +42,6 @@ export const ProfileBanner = () => {
             </DialogContent>
           </Dialog>
         </div>
-
         <UserName username={user.UserName} changeUsernameAction={changeUsernameAction} />
       </AvatarContainer>
     </Container>
