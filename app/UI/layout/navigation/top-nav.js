@@ -26,7 +26,7 @@ export const TopNav = () => {
   }, [user]);
 
   return (
-    <nav className=" relative top-0 w-full flex items-center justify-between p-4 bg-[#020041] z-[100]">
+    <nav className=" fixed top-0 w-full flex items-center justify-between p-4 bg-[#020041] z-[100]">
       {!error && (
         <div className=" flex gap-2 items-center max-sm:flex-col">
           <Avatar

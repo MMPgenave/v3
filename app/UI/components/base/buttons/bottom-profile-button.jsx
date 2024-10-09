@@ -24,7 +24,7 @@ const BottomProfileButton = ({ href, title }) => {
         <span className="hidden md:inline capitalize">{title}</span>
       </div>
     );
-  if (error) return "Error in Loading User." + error.message;
+  if (error) return <div className=" text-sm font-bold text-red-400">Error</div>;
 
   const user = data.Data.User;
 

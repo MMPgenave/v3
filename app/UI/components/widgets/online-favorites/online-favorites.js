@@ -1,8 +1,6 @@
-import Image from "next/image";
 import { OnlineFriendAvatar } from "../../base";
 import { FavoriteGame } from "../favorite-game";
 import game1 from "@/app/lib/assets/img/games/backgammon.jpg";
-import Link from "next/link";
 
 export const OnlineFavorites = () => {
   const gameImage = { id: 1, src: game1, alt: "backgammon" };

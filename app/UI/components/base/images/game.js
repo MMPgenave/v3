@@ -1,15 +1,7 @@
 import Image from "next/image";
 
 export const GameImage = ({ img, className, width, height }) => {
-  return (
-    <Image
-      className={`rounded-full ${className}`}
-      src={img.src}
-      alt={img.alt}
-      width={width}
-      height={height}
-    />
-  );
+  return <Image className={`rounded-full ${className}`} src={img.src} alt={img.alt} width={width} height={height} />;
 };
 
 export const HistoryCardImage = ({ img }) => {
@@ -17,5 +9,5 @@ export const HistoryCardImage = ({ img }) => {
 };
 
 export const HomePageGameImage = ({ img }) => {
-  return <GameImage className="w-12 sm:w-20" img={img} />;
+  return <GameImage width={80} height={80} img={img} />;
 };

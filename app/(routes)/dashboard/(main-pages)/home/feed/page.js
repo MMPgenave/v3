@@ -9,7 +9,7 @@ const Feed = () => {
       <Socket />
       <OnlineFavorites />
       <DailyMission />
-      <GameFeed />
+      {/* <GameFeed /> */}
       <AuthorChats />
     </div>
   );
