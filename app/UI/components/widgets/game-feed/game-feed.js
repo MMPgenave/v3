@@ -7,7 +7,7 @@ export const GameFeed = () => {
   return (
     <div
       style={{ "background-color": "black" }}
-      className="flex justify-between items-center p-2 gap-2 border-b-2 border-slate-300"
+      className="flex justify-between items-center p-2 gap-2 border-b-[0.5px] border-slate-400"
     >
       <Image className="rounded-full w-16 h-16 sm:w-20 sm:h-20" src={icon} alt="daily mission" />
       <div className="flex flex-col w-full">

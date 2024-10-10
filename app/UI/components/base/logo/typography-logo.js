@@ -5,7 +5,7 @@ import { routes } from "@/app/lib/config/routes";
 
 export const TypographyLogo = () => {
   return (
-    <Link href={routes.HOME.FEED}>
+    <Link href={routes.HOME.FEED} className=" max-sm:hidden">
       <Image src={logo} alt="logo" className="w-28 sm:w-36" />
     </Link>
   );

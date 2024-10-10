@@ -1,12 +1,12 @@
 import Image from "next/image";
-import {
-  Progress,
-  FeedSubHeading as SubHeading,
-} from "@/app/UI/components/base";
+import { Progress, FeedSubHeading as SubHeading } from "@/app/UI/components/base";
 import icon from "@/app/lib/assets/img/icons/icon25.png";
 export const DailyMission = () => {
   return (
-    <div style={ {    'background-color': 'black'} } className=" flex justify-between items-center p-2 gap-2 border-b-2 border-slate-300">
+    <div
+      style={{ "background-color": "black" }}
+      className=" flex justify-between items-center p-2 gap-2 border-b-[0.5px] border-slate-400"
+    >
       <Image
         className="rounded-full w-16 h-16 sm:w-20 sm:h-20 border p-1 border-dim-gray"
         src={icon}

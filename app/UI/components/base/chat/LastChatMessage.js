@@ -24,7 +24,7 @@ const LastChatMessage = ({ chat, authorId, friendId }) => {
           alt="avatar"
           className=" rounded-full  border-2 border-slate-200"
         />
-        <div className="flex justify-between items-center flex-1 border-b-[1px] pb-2">
+        <div className="flex justify-between items-center flex-1 border-b-[0.5px] border-slate-400 px-2 pb-2">
           <div className="flex flex-col">
             <div className=" font-bold text-slate-200">{friend?.UserName}</div>
             <div className="text-md line-clamp-1 text-slate-300">{Message}</div>

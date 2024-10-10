@@ -27,12 +27,12 @@ const YourAppLayout = () => {
       userId={user.TTID}
     >
       <>
-        <NotificationIconButton ref={notifButtonRef} onClick={(e) => setIsVisible(!isVisible)} />
+        <NotificationIconButton className="mt-10" ref={notifButtonRef} onClick={(e) => setIsVisible(!isVisible)} />
         <NotificationFeedPopover buttonRef={notifButtonRef} isVisible={isVisible} onClose={() => setIsVisible(false)} />
       </>
     </KnockFeedProvider>
   ) : (
-    <i className="bi bi-bell-fill text-2xl text-info cursor-pointer hover:scale-110 transition-all"></i>
+    <i className="bi bi-bell-fill text-xl text-info cursor-pointer hover:scale-110 transition-all"></i>
   );
 };
 export default YourAppLayout;
