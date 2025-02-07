@@ -6,7 +6,7 @@ import Image from "next/image";
 export const BottomNavButtonImage = ({ icon, href, title }) => {
   const pathname = usePathname();
   return (
-    <Link href={href} className={`transition-all cursor-pointer hover:text-white flex flex-col items-center gap-2 `}>
+    <Link href={href} className={`transition-all cursor-pointer hover:text-white flex flex-col items-center gap-1 `}>
       <Image
         width={24}
         height={24}

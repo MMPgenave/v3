@@ -14,9 +14,8 @@ export const Tab = ({ children, tab }) => {
   return (
     <Link
       href={link}
-      className={`  font-bold text-md text-center uppercase w-full cursor-pointer  ${
-        activeTab ? "border-b-2 border-b-blue-violet  text-slate-200" : "text-gray"
-      }`}
+      className={`  font-bold text-md text-center uppercase w-full cursor-pointer  ${activeTab ? "border-b-2 border-b-gold  text-slate-200" : "text-gray"
+        }`}
     >
       {children}
     </Link>

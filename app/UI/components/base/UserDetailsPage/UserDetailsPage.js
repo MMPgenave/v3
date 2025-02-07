@@ -22,6 +22,7 @@ import { GamesHistory, HistoryCard } from "@/app/UI/components/widgets";
 import gameImage from "@/app/lib/assets/img/games/backgammon.jpg";
 import { usePathname } from "next/navigation";
 import { getUserDataById } from "@/app/actions/get-user-details";
+import { Section } from "@/app/UI/layout";
 
 const UserDetailsPage = ({ userData }) => {
   const path = usePathname();
@@ -92,7 +93,7 @@ const UserDetailsPage = ({ userData }) => {
 
   return (
     author && (
-      <div className="p-3 bg-black">
+      <Section className=" max-sm:mt-[136px] mt-[112px] pb-[70px] ">
         <div className="flex items-center justify-center relative bottom-1">
           <Image
             src="/icons/back-en.svg"
@@ -184,7 +185,7 @@ const UserDetailsPage = ({ userData }) => {
         <GamesHistory>
           <HistoryCard img={gameImage} />
         </GamesHistory>
-      </div>
+      </Section>
     )
   );
 };

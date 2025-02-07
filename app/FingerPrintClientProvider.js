@@ -6,7 +6,7 @@ const FingerPrintClientProvider = ({ children }) => {
   return (
     <FpjsProvider
       loadOptions={{
-        apiKey: "il7kNE7R1rjpSvCtxASh",
+        apiKey: "NIGn4Y5I1g2bMZeeiIBT",
         endpoint: [
           // "https://metrics.yourwebsite.com",
           FingerprintJSPro.defaultEndpoint,

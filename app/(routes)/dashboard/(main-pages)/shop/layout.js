@@ -4,7 +4,7 @@ import React from "react";
 const Layout = ({ children }) => {
   const tabs = ["items", "nft", "packages"];
   return (
-    <Section className=" max-sm:mt-[164px] mt-[112px] ">
+    <Section className=" max-sm:mt-[136px] mt-[112px] ">
       <Tabs tabs={tabs} tab="items" />
       {children}
     </Section>

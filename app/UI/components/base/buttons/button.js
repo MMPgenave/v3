@@ -62,7 +62,7 @@ export const Button = ({
   return (
     <button className={styles} type={type} onClick={handleClick}>
       {!isLoading && <div className=" text-slate-700">{children}</div>}
-      {isLoading && <Spinner />}
+      {isLoading && <Spinner backgroundColor={"blackTheme"} />}
     </button>
   );
 };

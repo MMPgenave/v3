@@ -66,8 +66,8 @@ export const AuthForm = ({ initialValues, fields, heading, subHeading, children,
       {({ isSubmitting, errors, touched }) => {
         return (
           <Form className="flex w-11/12 flex-col p-4 items-center gap-6 z-50 md:w-1/2 lg:w-1/3 xl:w-1/4 bg-blackTheme lg:rounded-lg">
-            <MainHeading style={"text-slate-300"}>{heading}</MainHeading>
-            <SubHeading className={"text-slate-400"}>{subHeading}</SubHeading>
+            <MainHeading style={"text-gold"}>{heading}</MainHeading>
+            {/* <SubHeading className={"text-slate-400"}>{subHeading}</SubHeading> */}
             {fields.map((field) => (
               <Field
                 name={field.name}

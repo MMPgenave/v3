@@ -3,7 +3,7 @@ import { tournaments } from "@/app/lib/data/tournaments";
 import Image from "next/image";
 const Tournaments = () => {
   return (
-    <Section className="flex flex-col gap-3 bg-[url('/img/img7.jpeg')] max-sm:mt-[164px] mt-[112px] max-sm:pb-[70px]">
+    <Section className="flex flex-col gap-3 bg-[url('/img/img7.jpeg')] max-sm:mt-[136px] mt-[112px] max-sm:pb-[70px]">
       {tournaments.map((item) => (
         <Card key={item.description} index={item.id} imgUrl={item.imgUrl} description={item.description} />
       ))}

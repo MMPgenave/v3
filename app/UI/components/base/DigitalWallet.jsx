@@ -7,13 +7,7 @@ const DigitalWallet = () => {
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger>
-          <Image
-            src={"/images/digital-wallet.png"}
-            width={45}
-            height={45}
-            alt="digital wallet"
-            className="rounded-[0.2rem] mt-2"
-          />
+          <i class="bi bi-wallet2 text-2xl text-gold"></i>
         </TooltipTrigger>
         <TooltipContent>
           <p className=" !text-sm">Connect Your MetaMask Wallet</p>

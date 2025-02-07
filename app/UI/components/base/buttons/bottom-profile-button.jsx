@@ -33,8 +33,8 @@ const BottomProfileButton = ({ href, title }) => {
   return (
     <Link
       href={href}
-      className={`transition-all cursor-pointer hover:text-white flex flex-col items-center gap-2 ${
-        path === href ? "text-info hover:text-info" : ""
+      className={`transition-all cursor-pointer  flex flex-col items-center gap-2 ${
+        path === href ? "text-gold hover:opacity-90" : ""
       }`}
     >
       <Image
@@ -42,7 +42,7 @@ const BottomProfileButton = ({ href, title }) => {
         width={44}
         height={44}
         alt="avatar"
-        className={`w-10 h-10 rounded-full  cursor-pointer border-2 ${path === href && "border-info"}`}
+        className={`w-10 h-10 rounded-full  cursor-pointer border-2 ${path === href && "border-gold"}`}
       />
       <span className="hidden md:inline capitalize">{title}</span>
     </Link>

@@ -7,7 +7,7 @@ import Image from "next/image";
 const Layout = ({ children }) => {
   const tabs = ["feed", "news", "global"];
   return (
-    <Section className=" max-sm:mt-[164px] mt-[112px] ">
+    <Section className=" max-sm:mt-[136px] mt-[112px] ">
       <Tabs tabs={tabs} tab="feed" />
       {children}
       <Link

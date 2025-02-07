@@ -24,12 +24,12 @@ const fields = [
     placeholder: "Confirm Password",
     icon: "bi-key",
   },
-  {
-    name: "referralID",
-    type: "text",
-    placeholder: "ReferralID",
-    icon: "bi-person-workspace ",
-  },
+  // {
+  //   name: "referralID",
+  //   type: "text",
+  //   placeholder: "ReferralID",
+  //   icon: "bi-person-workspace ",
+  // },
 ];
 const SignUp = async () => {
   const cookieStore = cookies();
@@ -43,13 +43,13 @@ const SignUp = async () => {
       <AuthForm
         fields={fields}
         heading="create an account"
-        subHeading="Let us  know username, email, password"
+        subHeading=""
         initialValues={{
           username: "",
           email: "",
           password: "",
           confirmPassword: "",
-          referralID: "",
+          // referralID: "",
         }}
         type="sign up"
       >

@@ -1,9 +1,9 @@
-export const DotsSpinner = () => {
+export const DotsSpinner = ({ backgroundColor }) => {
   return (
     <div className="flex gap-2">
-      <div className="w-2 h-2 rounded-full animate-pulse bg-blackTheme"></div>
-      <div className="w-2 h-2 rounded-full animate-pulse bg-blackTheme"></div>
-      <div className="w-2 h-2 rounded-full animate-pulse bg-blackTheme"></div>
+      <div className={`w-2 h-2 rounded-full animate-pulse bg-${backgroundColor}`}></div>
+      <div className={`w-2 h-2 rounded-full animate-pulse bg-${backgroundColor}`}></div>
+      <div className={`w-2 h-2 rounded-full animate-pulse bg-${backgroundColor}`}></div>
     </div>
   );
 };

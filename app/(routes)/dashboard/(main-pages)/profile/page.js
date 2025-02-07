@@ -24,7 +24,7 @@ const Profile = () => {
 
   const user = userQuery.data.Data.User;
   return (
-    <Section className=" max-sm:mt-[164px] mt-[112px] max-sm:pb-[70px]">
+    <Section className=" max-sm:mt-[136px] mt-[112px] max-sm:pb-[70px]">
       <ProfileBanner />
       <ProfileInfo />
       <div className="grid grid-cols-1 md:grid-cols-2  md:grid-rows-4 w-full gap-2">

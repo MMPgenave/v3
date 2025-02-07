@@ -8,9 +8,8 @@ export const BottomNavButton = ({ icon, href, title }) => {
   return (
     <Link
       href={href}
-      className={`transition-all cursor-pointer hover:text-white flex flex-col items-center gap-2 ${
-        pathname === href ? "text-info hover:text-info" : ""
-      }`}
+      className={`transition-all cursor-pointer flex flex-col items-center gap-1 ${pathname === href ? "text-gold hover:opacity-90" : ""
+        }`}
     >
       <i className={`bi bi-${icon}`}></i>
 

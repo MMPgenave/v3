@@ -32,7 +32,7 @@ const YourAppLayout = () => {
       </>
     </KnockFeedProvider>
   ) : (
-    <i className="bi bi-bell-fill text-xl text-info cursor-pointer hover:scale-110 transition-all"></i>
+    <i className="bi bi-bell-fill text-xl text-gold cursor-pointer hover:scale-110 transition-all"></i>
   );
 };
 export default YourAppLayout;
