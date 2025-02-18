@@ -10,7 +10,7 @@ export async function getAuthorData() {
       },
     });
     const data = await res.json();
-    console.log(`user data is :${JSON.stringify(data)}`);
+    // console.log(`user data is :${JSON.stringify(data)}`);
     if (data.Status !== "success") {
       return {
         status: "error",

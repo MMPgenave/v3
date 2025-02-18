@@ -27,7 +27,7 @@ const Card = ({ index, imgUrl, description }) => {
         </div>
       </div>
       <div className=" bg-gold rounded-md px-3 py-1 flex items-center gap-2 w-fit cursor-pointer ml-2 ">
-        <i class="bi bi-coin text-yellow-600"></i>
+        <i className="bi bi-coin text-yellow-600"></i>
         <div className=" text-black">Join</div>
       </div>
     </div>

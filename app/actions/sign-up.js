@@ -15,7 +15,7 @@ export async function signUp(values) {
       }),
     });
     const data = await res.json();
-    console.log(`sign up data :${JSON.stringify(data)}`);
+    // console.log(`sign up data :${JSON.stringify(data)}`);
 
     if (res.statusCode === 422) {
       return {

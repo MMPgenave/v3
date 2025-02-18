@@ -26,7 +26,8 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx",
-    "app/(routes)/dashboard/(main-pages)/people/friends-of/page.js"
+    "app/(routes)/dashboard/(main-pages)/people/friends-of/page.js",
+    "app/UI/components/base/Signout.jsx"
   ],
   "exclude": ["node_modules"]
 }

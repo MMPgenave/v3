@@ -1,87 +1,70 @@
 "use client";
+import { useState } from "react";
 import Image from "next/image";
-import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/app/UI/components/ui/button";
-import { routes } from "@/app/lib/config/routes";
-import { toast } from "react-toastify";
-import { Knock } from "@knocklabs/node";
-import { getAuthorData } from "@/app/actions";
 import Link from "next/link";
 import banner from "@/app/lib/assets/img/banner.png";
 import clsx from "clsx";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import { revalidatePath } from "next/cache";
 dayjs.extend(relativeTime);
 dayjs("1999-01-01").fromNow(true);
 import { Banner, ProfileAvatar } from "@/app/UI/components/base";
 import { AvatarContainer, ProfileBannerContainer as Container } from "@/app/UI/layout";
-const KnockClient = new Knock("sk_test_amLsV98Sm_1FWsTVA--BKZYSMp0i2D9E7E3-S2AkC9Y");
 import { GamesHistory, HistoryCard } from "@/app/UI/components/widgets";
 import gameImage from "@/app/lib/assets/img/games/backgammon.jpg";
-import { usePathname } from "next/navigation";
-import { getUserDataById } from "@/app/actions/get-user-details";
+import { getAuthorFriends } from "@/app/actions/get-friends";
+import { getUserDataByUserName } from "@/app/actions/get-user-details";
+
 import { Section } from "@/app/UI/layout";
-
-const UserDetailsPage = ({ userData }) => {
-  const path = usePathname();
+import { useAppSelector } from "@/app/lib/redux/hooks";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
+import { addToFriend } from '@/app/actions/addFriends'
+const UserDetailsPage = ({ username }) => {
+  const { user } = useAppSelector((state) => state.auth);
   const router = useRouter();
-  const [author, setAuthor] = useState();
-  const getAuthor = async () => {
-    const res = await getAuthorData();
-    setAuthor(res.Data.User);
-  };
-  const getUser = async (id) => {
-    const res = getUserDataById(id);
-    console.log(`res in getUserDataById() is :${JSON.stringify(res)}`);
-  };
+  const authorFriendsQuery = useQuery({
+    queryKey: ["authorFriends"],
+    queryFn: () => getAuthorFriends(),
+    suspense: true,
+    staleTime: 5 * 1000,
+  });
 
-  useEffect(() => {
-    getAuthor();
-    getUser(userData.id);
-  }, []);
-  async function addToFriend(id) {
-    try {
-      const res = await fetch(routes.ADDFRIENDS, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ID: id,
-        }),
-      });
-      const data = await res.json();
-      if (res.statusCode === 422) {
-        toast(` ${data.message}`);
+  console.log(`authorFriendsQuery.data:${JSON.stringify(authorFriendsQuery.data)}`)
 
-        return {
-          status: "error",
-          message: data.message,
-          errors: data.errors,
-        };
-      }
-      if (data.Status !== "success") {
-        toast(` ${data.message}`);
 
-        return {
-          status: "error",
-          message: data.message,
-        };
-      } else if (data.Status === "success") {
-        toast(` successfully friend added`);
-        await KnockClient.notify("new-following-in-game-app", {
-          actor: author.TTID,
-          recipients: [userData.TTID],
-        });
-        revalidatePath(path);
-        return;
-      }
-    } catch (error) {
-      console.log("error in addToFriend", error);
-    }
+
+
+
+  const applicationUserQuery = useQuery({
+    queryKey: ["application-user"],
+    queryFn: () => getUserDataByUserName(username),
+    suspense: true,
+    staleTime: 5 * 1000,
+  });
+
+  const userData = applicationUserQuery.data;
+
+  const queryClient = useQueryClient();
+  const { mutate } = useMutation({
+    mutationFn: () => addToFriend(userData.id, user.TTID, userData.TTID),
+    onSuccess: queryClient.invalidateQueries({ queryKey: ["application-user"] }),
+  });
+
+  async function addThisAppUserToAuthorFriend() {
+    mutate();
   }
+  let isFriend = false;
+  authorFriendsQuery.data &&
+    authorFriendsQuery.data.map((element) => {
+      if (element.user.UserName === userData.userName) {
+        isFriend = true;
+      }
+    });
+
+
 
   const userTypeStyle = clsx(
     "capitalize",
@@ -91,8 +74,13 @@ const UserDetailsPage = ({ userData }) => {
     userData.Type === "Bronze" && "text-firebrick"
   );
 
+
+
+
+
+
   return (
-    author && (
+    user && (
       <Section className=" max-sm:mt-[136px] mt-[112px] pb-[70px] ">
         <div className="flex items-center justify-center relative bottom-1">
           <Image
@@ -171,12 +159,12 @@ const UserDetailsPage = ({ userData }) => {
           <Button
             type={"button"}
             onClick={() => {
-              addToFriend(userData.id);
+              addThisAppUserToAuthorFriend();
             }}
-            disabled={userData.isFriend}
-            className={`w-[48%]   text-slate-100 text-sm ${userData.isFriend ? " bg-success" : "bg-martinique"}`}
+            disabled={isFriend}
+            className={`w-[48%]   text-slate-100 text-sm ${isFriend ? " bg-success" : "bg-martinique"}`}
           >
-            {userData.isFriend ? "Already is Friend" : " Add to friends"}
+            {isFriend ? "Already is Friend" : " Add to friends"}
           </Button>
           <Button className=" w-[48%] bg-primary   text-slate-50 text-sm">
             <Link href={`/dashboard/chat/:${userData.UserName}`}>Message</Link>

@@ -11,6 +11,7 @@ export async function signOut() {
   try {
     const res = await fetch(url, options);
     const data = await res.json();
+    console.log(`sign-out data:${JSON.stringify(data)}`)
     return data;
   } catch (error) {
 

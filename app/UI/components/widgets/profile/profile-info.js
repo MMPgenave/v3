@@ -1,45 +1,35 @@
 "use client";
-import { useState } from "react";
 import { CoinBox } from "@/app/UI/components/widgets";
 import { useAppSelector } from "@/app/lib/redux/hooks";
 import clsx from "clsx";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import { useEffect } from "react";
 dayjs.extend(relativeTime);
 dayjs("1999-01-01").fromNow(true);
-import { routes } from "@/app/lib/config/routes";
 import Link from "next/link";
 import { getAuthorFriends } from "@/app/actions/get-friends";
+import { getUserFriendsOf } from '@/app/actions/get-friends-of'
+import { useQuery } from "@tanstack/react-query";
 
 export const ProfileInfo = () => {
   const { user } = useAppSelector((state) => state.auth);
-  const [userFriends, setuserFriends] = useState([]);
-  const [userFriendsOf, setuserFriendsOf] = useState([]);
+  const userFriendsQuery = useQuery({
+    queryKey: ["userFriends"],
+    queryFn: () => getAuthorFriends(),
+    suspense: true,
+    staleTime: 5 * 1000,
 
-  useEffect(() => {
-    async function getData() {
-      const res = await getAuthorFriends();
-      setuserFriends(res);
-    }
-    async function getUserFriendsOf() {
-      try {
-        const response = await fetch(`${routes.GETUSERFRIENDOF}`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        const data = await response.json();
-        setuserFriendsOf(data.Data[0]);
-      } catch (error) {
-        console.log(`Error in getUserFriendsOf is:${error}`);
-      }
-    }
+  });
+  // console.log(`userFriendsQuery:${JSON.stringify(userFriendsQuery.data)}`)
+  const userFriendsOfQuery = useQuery({
+    queryKey: ["userFriendsOf"],
+    queryFn: () => getUserFriendsOf(),
+    suspense: true,
+    staleTime: 5 * 1000,
 
-    getData();
-    getUserFriendsOf();
-  }, []);
+  });
+  // console.log(`userFriendsOfQuery:${JSON.stringify(userFriendsOfQuery.data)}`)
+
 
   const userTypeStyle = clsx(
     "capitalize",
@@ -76,13 +66,13 @@ export const ProfileInfo = () => {
           <div className="capitalize flex flex-col items-center">
             <h3 className="capitalize font-bold text-primary">friends</h3>
             <Link href={"/dashboard/people/friends"} className=" text-slate-200">
-              {userFriends.length}
+              {userFriendsQuery.data.length}
             </Link>
           </div>
           <div className="flex flex-col items-center   pl-1">
             <h3 className="capitalize font-bold text-primary">friendsOf </h3>
             <Link className=" text-slate-200" href={"/dashboard/people/friends-of"}>
-              {userFriendsOf.length}
+              {userFriendsOfQuery.data.length}
             </Link>
           </div>
         </div>

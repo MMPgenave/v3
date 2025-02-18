@@ -13,7 +13,7 @@ import { ProfileSection as Section } from "@/app/UI/layout";
 import { collectibles } from "@/app/lib/data/images";
 import { useQuery } from "@tanstack/react-query";
 import { getAuthorData } from "@/app/actions/get-author-data";
-
+import Signout from "@/app/UI/components/base/Signout.jsx";
 const Profile = () => {
   const userQuery = useQuery({
     queryKey: ["author"],
@@ -27,6 +27,7 @@ const Profile = () => {
     <Section className=" max-sm:mt-[136px] mt-[112px] max-sm:pb-[70px]">
       <ProfileBanner />
       <ProfileInfo />
+      <Signout />
       <div className="grid grid-cols-1 md:grid-cols-2  md:grid-rows-4 w-full gap-2">
         <ProfileField title="FirstName">
           {user.FirstName ? `${user.FirstName}` : "Your First Name Goes Here"}
@@ -38,8 +39,8 @@ const Profile = () => {
         <UserCollection>
           {collectibles.length
             ? collectibles.map((collectible) => (
-                <CollectionCard key={collectible.id} img={collectible} title={collectible.alt} />
-              ))
+              <CollectionCard key={collectible.id} img={collectible} title={collectible.alt} />
+            ))
             : "You have no collectibles :("}
         </UserCollection>
       </div>

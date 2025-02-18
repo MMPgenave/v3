@@ -14,7 +14,7 @@ export async function createRoom(Players, GameName, Bet) {
       }),
     });
     const data = await res.json();
-    console.log(`In create-room action res:${JSON.stringify(data)}`);
+    // console.log(`In create-room action res:${JSON.stringify(data)}`);
     if (res.statusCode === 422) {
       return {
         status: "error",

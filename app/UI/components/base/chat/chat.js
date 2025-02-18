@@ -21,7 +21,7 @@ export const ChatWithOthers = ({ friendUserName }) => {
   const [friend, setfriendDetails] = useState();
   const [allChats, setallChats] = useState([]);
   const dummy = useRef(null);
-
+  console.log(`friend:${friend}`)
   const dispatch = useAppDispatch();
 
   const handleSetJoinName = (name) => {
@@ -129,9 +129,8 @@ export const ChatWithOthers = ({ friendUserName }) => {
                       </div>
 
                       <div className={`${chat.ChatID === 1 && "pt-4"} message`}>
-                        <div className="user-name">{`${
-                          chat.SenderID === user.id ? user.UserName : friend.UserName
-                        } `}</div>
+                        <div className="user-name">{`${chat.SenderID === user.id ? user.UserName : friend.UserName
+                          } `}</div>
                         <div className="text">
                           <div className="right-arrow"></div>
                           <div className="content">{chat.Message}</div>

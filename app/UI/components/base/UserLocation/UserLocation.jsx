@@ -12,7 +12,7 @@ const UserLocation = () => {
     queryFn: () => getLocationByIP(data?.ip),
     enabled: !!data?.ip,
   });
-  console.log(`location data is ${JSON.stringify(countryQuery?.data)}`);
+  // console.log(`location data is ${JSON.stringify(countryQuery?.data)}`);
 
   if (isLoading) return <LoadingSpinner width="w-5" height="h-5" color="text-[#FAFAB6]" />;
   if (error) return <div className=" text-sm text-rose-600 ">Error</div>;
@@ -21,7 +21,7 @@ const UserLocation = () => {
       <Tooltip>
         <TooltipTrigger>
           <div className=" text-gold font-semibold max-sm:text-sm max-sm:-ml-1 cursor-pointer">
-            <i class="bi bi-geo-alt"></i> {countryQuery.data?.country_code2}
+            <i className="bi bi-geo-alt"></i> {countryQuery.data?.country_code2}
           </div>
         </TooltipTrigger>
         <TooltipContent>

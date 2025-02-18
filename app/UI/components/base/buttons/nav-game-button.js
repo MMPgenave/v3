@@ -13,7 +13,7 @@ export const GameNavButton = ({ href, title }) => {
         : " "
         }`}
     >
-      <i class="bi bi-dice-6-fill"></i>
+      <i className="bi bi-dice-6-fill"></i>
       <span className="hidden md:inline capitalize">{title}</span>
     </Link>
   );

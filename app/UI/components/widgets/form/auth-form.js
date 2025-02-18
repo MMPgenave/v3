@@ -19,7 +19,7 @@ export const AuthForm = ({ initialValues, fields, heading, subHeading, children,
       toast.success(res.message);
       setTimeout(() => {
         router.push(routes.HOME.FEED);
-      }, 3000);
+      }, 50);
     }
     return res;
   }
@@ -34,7 +34,7 @@ export const AuthForm = ({ initialValues, fields, heading, subHeading, children,
         toast.success(res.message);
         setTimeout(() => {
           router.push(routes.LOGIN);
-        }, 3000);
+        }, 50);
       }
       return res;
     } else {

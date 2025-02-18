@@ -14,7 +14,7 @@ export async function closeRoom(RoomID, Winner, Loser) {
       }),
     });
     const data = await res.json();
-    console.log(`In close-room action res:${JSON.stringify(data)}`);
+    // console.log(`In close-room action res:${JSON.stringify(data)}`);
     if (res.statusCode === 422) {
       return {
         status: "error",
