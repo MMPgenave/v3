@@ -11,6 +11,7 @@ const UserLocation = () => {
     queryKey: ["country-name"],
     queryFn: () => getLocationByIP(data?.ip),
     enabled: !!data?.ip,
+    refetchOnWindowFocus: false, // Disable refetch on window focus
   });
   // console.log(`location data is ${JSON.stringify(countryQuery?.data)}`);
 

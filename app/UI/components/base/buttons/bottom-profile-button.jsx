@@ -10,7 +10,9 @@ const BottomProfileButton = ({ href, title }) => {
   const path = usePathname();
   const { isPending, error, data, isFetching } = useQuery({
     queryKey: ["author"],
-    queryFn: () => getAuthorData(),
+    queryFn: getAuthorData,
+
+    refetchOnWindowFocus: false, // Disable refetch on window focus
   });
 
   if (isPending)
@@ -28,7 +30,7 @@ const BottomProfileButton = ({ href, title }) => {
     );
   if (error) return <div className=" text-sm font-bold text-red-400">Error</div>;
 
-  const user = data.Data.User;
+  const user = data?.Data.User;
 
   return (
     <Link

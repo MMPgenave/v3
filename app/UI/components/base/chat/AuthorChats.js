@@ -25,7 +25,9 @@ const AuthorChats = () => {
     data: authorData,
   } = useQuery({
     queryKey: ["author"],
-    queryFn: () => getAuthorData(),
+    queryFn: getAuthorData,
+
+    refetchOnWindowFocus: false, // Disable refetch on window focus
   });
   const {
     isPending: isPendingInGetChat,
@@ -34,6 +36,7 @@ const AuthorChats = () => {
   } = useQuery({
     queryKey: ["chat"],
     queryFn: () => getChatHere(),
+    refetchOnWindowFocus: false, // Disable refetch on window focus
   });
 
   if (isPendingInGetAuthor || isPendingInGetChat)

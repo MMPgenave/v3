@@ -14,6 +14,7 @@ const withPWAConfig = withPWA({
 });
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: false,
   experimental: {
     esmExternals: "loose",
     // trailingSlash: true,
@@ -25,4 +26,4 @@ const nextConfig = {
   },
 };
 
-export default withPWA(nextConfig);
+export default nextConfig;

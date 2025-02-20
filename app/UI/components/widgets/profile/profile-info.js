@@ -13,23 +13,30 @@ import { useQuery } from "@tanstack/react-query";
 
 export const ProfileInfo = () => {
   const { user } = useAppSelector((state) => state.auth);
+  console.log(`user kaivan:${JSON.stringify(user, null, 2)}`)
   const userFriendsQuery = useQuery({
     queryKey: ["userFriends"],
-    queryFn: () => getAuthorFriends(),
+    queryFn: getAuthorFriends,
     suspense: true,
-    staleTime: 5 * 1000,
-
+    refetchOnWindowFocus: false, // Disable refetch on window focus
   });
   // console.log(`userFriendsQuery:${JSON.stringify(userFriendsQuery.data)}`)
   const userFriendsOfQuery = useQuery({
     queryKey: ["userFriendsOf"],
-    queryFn: () => getUserFriendsOf(),
+    queryFn: getUserFriendsOf,
     suspense: true,
     staleTime: 5 * 1000,
+    refetchOnWindowFocus: false, // Disable refetch on window focus
 
   });
   // console.log(`userFriendsOfQuery:${JSON.stringify(userFriendsOfQuery.data)}`)
 
+  if (userFriendsOfQuery.isPending || userFriendsQuery.isPending) {
+    return <div>Loading...</div>
+  }
+  if (userFriendsOfQuery.isError || userFriendsQuery.isError) {
+    return <div className=" text-red-500">{userFriendsOfQuery.error.message + userFriendsQuery.error.message}</div>
+  }
 
   const userTypeStyle = clsx(
     "capitalize",
@@ -38,6 +45,7 @@ export const ProfileInfo = () => {
     user.Type === "Silver" && "text-slate-400",
     user.Type === "Bronze" && "text-firebrick"
   );
+
   return (
     <>
       <div className="w-4/5 sm-mobile:w-auto py-4 px-8 bg-black text-lg flex flex-col sm:flex-row sm:gap-6 gap-4 shadow-lg justify-center rounded-lg text-white font-bold">

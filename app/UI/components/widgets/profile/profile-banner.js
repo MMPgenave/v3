@@ -11,7 +11,8 @@ import { getAuthorData } from "@/app/actions/get-author-data";
 export const ProfileBanner = () => {
   const userQuery = useQuery({
     queryKey: ["author"],
-    queryFn: () => getAuthorData(),
+    queryFn: getAuthorData,
+    refetchOnWindowFocus: false, // Disable refetch on window focus
   });
 
   if (userQuery.isPending) return <div className=" text-sm text-center">Loading User Profile ...</div>;
